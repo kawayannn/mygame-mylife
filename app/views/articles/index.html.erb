@@ -1,6 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Articles</h1>
+<%if user_signed_in?%>
+  <%= current_user.name %>
+<%end%>
+<br />
+<%= link_to "登録",new_user_session_path, method: :GET %>
+<%= link_to "ログアウト",destroy_user_session_path, method: :DELETE %>
+
 <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Dropdown button
