@@ -6,3 +6,7 @@
     New
 
 = fa_icon 'pencil-square-o', class: "group__top--icon"
+
+.logout
+  = link_to destroy_user_session_path, method: :delete, class: "logout" do
+    logout
