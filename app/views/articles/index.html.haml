@@ -1,12 +1,9 @@
-%button.btn.btn-primary{type: "button"}
-  Primary
-%h1
-  Example heading
-  %span.badge.badge-secondary
-    New
-
-= fa_icon 'pencil-square-o', class: "group__top--icon"
-
-.logout
-  = link_to destroy_user_session_path, method: :delete, class: "logout" do
-    logout
+= render 'shared/header'
+- @articles.each do |article|
+  .articles
+    .articles__article.bg-danger
+      .articles__article--uper
+        = article.title
+        = "投稿者: #{article.user.name}"
+      .articles__article--lower
+        = article.content
