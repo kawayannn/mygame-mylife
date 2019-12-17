@@ -1,9 +1,14 @@
 = render 'shared/header'
-- @articles.each do |article|
-  .articles
+.articles
+  - @articles.each do |article|
     .articles__article.bg-danger
       .articles__article--uper
         = article.title
         = "投稿者: #{article.user.name}"
+        = image_tag article.user.image.url
+          
       .articles__article--lower
         = article.content
+      .delete
+        = link_to "/articles/#{article.id}", method: :delete do
+          = fa_icon 'trash'
