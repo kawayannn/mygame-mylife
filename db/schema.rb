@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_18_094351) do
+ActiveRecord::Schema.define(version: 2019_12_18_165653) do
 
   create_table "article_gametitles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "article_id", null: false
@@ -66,6 +66,15 @@ ActiveRecord::Schema.define(version: 2019_12_18_094351) do
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
+  create_table "user_gametitles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "gametitle_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["gametitle_id"], name: "index_user_gametitles_on_gametitle_id"
+    t.index ["user_id"], name: "index_user_gametitles_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -86,4 +95,6 @@ ActiveRecord::Schema.define(version: 2019_12_18_094351) do
   add_foreign_key "relationships", "users"
   add_foreign_key "relationships", "users", column: "follow_id"
   add_foreign_key "taggings", "tags"
+  add_foreign_key "user_gametitles", "gametitles"
+  add_foreign_key "user_gametitles", "users"
 end
