@@ -1,12 +1,14 @@
 = render 'shared/header'
+
+.tag_choice
+  タグから検索
+  
 .articles
   - @articles.each do |article|
-    .articles__article.bg-danger
+    .articles__article.bg-info
       .articles__article--uper
         = article.title
-        = "投稿者: #{article.user.name}"
-        = image_tag article.user.image.url
-          
+        = render partial: 'shared/user', locals: { hoge: article }          
       .articles__article--lower
         = article.content
       .delete
