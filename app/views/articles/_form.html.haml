@@ -16,5 +16,13 @@
   .field
     = form.label :image
     = form.file_field :image
+  .field
+    = form.collection_check_boxes :gametitle_ids, Gametitle.all, :id, :name
+    -# - @gametitles.each do |gametitle|
+      -# = form.check_box :gametitle_ids,
+      -#   { multiple: true,checked: @article.gametitle.present? ? @article.gametitle.split(",").include?(gametitle) : false},gametitle, nil
+      -# %span
+      -#   = tag
+    -# = form.collection_select :gametitle_ids, Gametitle.all, :id, :name
   .actions
     = form.submit

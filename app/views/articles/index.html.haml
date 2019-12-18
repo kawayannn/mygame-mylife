@@ -1,16 +1,4 @@
 = render 'shared/header'
-
 .tag_choice
   タグから検索
-  
-.articles
-  - @articles.each do |article|
-    .articles__article.bg-info
-      .articles__article--uper
-        = article.title
-        = render partial: 'shared/user', locals: { hoge: article }          
-      .articles__article--lower
-        = article.content
-      .delete
-        = link_to "/articles/#{article.id}", method: :delete do
-          = fa_icon 'trash'
+= render 'articles'
