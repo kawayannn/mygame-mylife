@@ -1,0 +1,12 @@
+.header.container
+  .row 
+    %button.article.btn.btn-dark.col-sm
+      = link_to articles_path, method: :get do
+        BLOG
+        = fa_icon 'book', class: 'icon'
+    %button.mypage.btn.btn-dark.col-sm
+      = link_to user_path(current_user.id), method: :get, class: "mypage" do
+        マイページ
+    %button.logout.btn.btn-dark.col-sm{type: "button"}
+      = link_to destroy_user_session_path, method: :delete, class: "logout" do
+        logout

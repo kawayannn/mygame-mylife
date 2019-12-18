@@ -1,12 +1,16 @@
-%button.btn.btn-primary{type: "button"}
-  Primary
-%h1
-  Example heading
-  %span.badge.badge-secondary
-    New
+= render 'shared/header'
 
-= fa_icon 'pencil-square-o', class: "group__top--icon"
-
-.logout
-  = link_to destroy_user_session_path, method: :delete, class: "logout" do
-    logout
+.tag_choice
+  タグから検索
+  
+.articles
+  - @articles.each do |article|
+    .articles__article.bg-info
+      .articles__article--uper
+        = article.title
+        = render partial: 'shared/user', locals: { hoge: article }          
+      .articles__article--lower
+        = article.content
+      .delete
+        = link_to "/articles/#{article.id}", method: :delete do
+          = fa_icon 'trash'

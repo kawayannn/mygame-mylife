@@ -6,6 +6,10 @@
     %br/
     = f.text_field :name,autofocus: true, autocomplete: "name"
   .field
+    = f.label :image do
+      = fa_icon 'cog'
+      = f.file_field :image
+  .field
     = f.label :email
     %br/
     = f.email_field :email, autofocus: true, autocomplete: "email"
