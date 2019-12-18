@@ -16,5 +16,7 @@
   .field
     = form.label :image
     = form.file_field :image
+  .field
+    = form.collection_select :gametitle_ids, Gametitle.all, :id, :name
   .actions
     = form.submit
