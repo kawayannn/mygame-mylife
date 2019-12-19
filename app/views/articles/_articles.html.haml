@@ -8,8 +8,7 @@
       .articles__article--main
         = article.content
       .articles__article--lower
-        .tags
-          = render partial: 'shared/tags', locals: { hoge: article }
+        = render partial: 'shared/tags', locals: { hoge: article }
         .show_link
           = link_to article_path(article.id), method: :get do
             続きを読む

@@ -1,24 +1,23 @@
 main{
   padding-top: 50px;
-  .articles{
-    &__article{
-      width: 80%;
-      margin-right: auto;
-      margin-left: auto;
-      margin-top: 20px;
-      margin-bottom: 15px;
-      padding: 15px;
-      background-color: white;
-      &--uper{
+  .article{
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: white;
+
+      &__uper{
         .title{
           font-size: larger;
           font-weight: bold;
         }
       }
-      &--main{
+      &__main{
         margin-bottom: 20px;
       }
-      &--lower{
+      &__lower{
         height: 20px;
         line-height: 20px;
         .tags{
@@ -31,6 +30,5 @@ main{
           float: right;
         }
       }
-    }
   }
 }
