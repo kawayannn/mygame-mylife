@@ -1,12 +1,16 @@
 .articles
   - @articles.each do |article|
-    .articles__article.bg-info
+    .articles__article
       .articles__article--uper
-        = article.title
+        .title
+          = article.title
         = render partial: 'shared/user', locals: { hoge: article }          
-      .articles__article--lower
+      .articles__article--main
         = article.content
+      .articles__article--lower
+        .tags
+          = render partial: 'shared/tags', locals: { hoge: article }
         .delete
           = link_to "/articles/#{article.id}", method: :delete do
             = fa_icon 'trash'
-        = render partial: 'shared/tags', locals: { hoge: article }
+

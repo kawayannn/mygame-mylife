@@ -1,0 +1,33 @@
+main{
+  padding-top: 50px;
+  .articles{
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px;
+    &__article{
+      margin-bottom: 15px;
+      padding: 15px;
+      background-color: #d9edf7;
+      &--uper{
+        .title{
+          font-size: larger;
+          font-weight: bold;
+        }
+      }
+      &--main{
+        margin-bottom: 20px;
+      }
+      &--lower{
+        height: 20px;
+        line-height: 20px;
+        .tags{
+          float: left;
+        }
+        .delete{
+          float: right;
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
-.tags
+%ul.tags
   - hoge.gametitles.each do |g|
-    .tag
-      = fa_icon 'tag'
+    %li.tags__tag.shadow.p-3.mb-5.rounded
+      = fa_icon 'tag', class: "tags__tag--icon"
       = g.name
