@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :articles
+  has_many :comments
 
   has_many :user_gametitles, dependent: :destroy
   has_many :gametitles, through: :user_gametitles

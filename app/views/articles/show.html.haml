@@ -1,17 +1,29 @@
 = render 'shared/header'
-%p#notice= notice
-%p
-  %strong Title:
-  = @article.title
-%p
-  %strong Content:
-  = @article.content
-%p
-  %strong Image:
-  = @article.image
-%p
-  %strong User:
-  = @article.user
-= link_to 'Edit', edit_article_path(@article)
-|
-= link_to 'Back', articles_path
+%main
+  .article.shadow.p-3.mb-5.rounded
+    .article__uper
+      .title
+        = @article.title
+      = render partial: 'shared/user', locals: { hoge: @article }          
+    .article__main
+      = @article.content
+    .article__lower
+      = render partial: 'shared/tags', locals: { hoge: @article }
+      .delete
+        = link_to "/articles/#{@article.id}", method: :delete do
+          = fa_icon 'trash'
+        |
+        = link_to 'Edit', edit_article_path(@article)
+        |
+        = link_to 'Back', articles_path
+
+  .comments
+    - @comments.each do |c|
+      = c.user.name
+      = c.text
+    = form_for [@article, @comment] do |f|
+      = f.text_area :text
+      = f.submit 
+      
+      
+    
