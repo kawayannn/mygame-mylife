@@ -19,6 +19,11 @@
 
   .comments
     - @comments.each do |c|
+      = c.user.name
       = c.text
+    = form_for [@article, @comment] do |f|
+      = f.text_area :text
+      = f.submit 
+      
       
     
