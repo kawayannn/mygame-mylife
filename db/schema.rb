@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2019_12_21_160219) do
 
   create_table "groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
+    t.integer "leader_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
