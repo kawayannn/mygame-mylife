@@ -6,7 +6,10 @@
         = fa_icon 'book', class: 'icon'
     %button.mypage.btn.btn-dark.col-sm
       = link_to user_path(current_user.id), method: :get, class: "mypage" do
-        マイページ
+        My Page
+    %button.group.btn.btn-dark.col-sm
+      = link_to new_group_path, method: :get, class: "group" do
+        GROUP
     %button.logout.btn.btn-dark.col-sm{type: "button"}
       = link_to destroy_user_session_path, method: :delete, class: "logout" do
         logout
