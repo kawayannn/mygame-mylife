@@ -1,0 +1,19 @@
+%h1 Listing gropups
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @gropups.each do |gropup|
+      %tr
+        %td= link_to 'Show', gropup
+        %td= link_to 'Edit', edit_gropup_path(gropup)
+        %td= link_to 'Destroy', gropup, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Gropup', new_gropup_path

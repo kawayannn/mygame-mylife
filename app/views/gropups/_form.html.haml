@@ -1,0 +1,10 @@
+= form_for @gropup do |f|
+  - if @gropup.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@gropup.errors.count, "error")} prohibited this gropup from being saved:"
+      %ul
+        - @gropup.errors.full_messages.each do |message|
+          %li= message
+
+  .actions
+    = f.submit 'Save'
