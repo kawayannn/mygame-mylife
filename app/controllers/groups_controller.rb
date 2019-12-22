@@ -25,8 +25,9 @@ class GroupsController < ApplicationController
   # POST /groups.json
   def create
     @group = Group.new(group_params)
-
+    @group.users = []
     if @group.save
+      @group.user_ids = group_params[:user_ids]
       redirect_to root_path
     else
       render :new

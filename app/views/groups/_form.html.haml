@@ -6,7 +6,7 @@
         - @group.errors.full_messages.each do |message|
           %li= message
   .field
-    = f.text_area :title
+    = f.text_area :title, placeholder: 'グループ名を入力してください'
   .field
     = f.collection_check_boxes :user_ids, User.all, :id, :name
   .actions
