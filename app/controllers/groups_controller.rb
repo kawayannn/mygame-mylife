@@ -26,15 +26,20 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
 
-    respond_to do |format|
-      if @group.save
-        format.html { redirect_to @group, notice: 'Group was successfully created.' }
-        format.json { render :show, status: :created, location: @group }
-      else
-        format.html { render :new }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
-      end
+    if @group.save
+      redirect_to root_path
+    else
+      render :new
     end
+    # respond_to do |format|
+    #   if @group.save
+    #     format.html { redirect_to @group, notice: 'Group was successfully created.' }
+    #     format.json { render :show, status: :created, location: @group }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @group.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /groups/1
@@ -69,6 +74,6 @@ class GroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
-      params.fetch(:group, {})
+      params.require(:group).permit(:title, user_ids: []).merge(leader_id: current_user.id)
     end
 end
