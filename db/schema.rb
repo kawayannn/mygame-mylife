@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_21_160219) do
+ActiveRecord::Schema.define(version: 2019_12_22_062716) do
 
   create_table "article_gametitles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "article_id", null: false
@@ -54,6 +54,11 @@ ActiveRecord::Schema.define(version: 2019_12_21_160219) do
     t.datetime "updated_at", null: false
     t.index ["gametitle_id"], name: "index_group_gametitles_on_gametitle_id"
     t.index ["group_id"], name: "index_group_gametitles_on_group_id"
+  end
+
+  create_table "group_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

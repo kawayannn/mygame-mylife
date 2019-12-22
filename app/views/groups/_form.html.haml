@@ -8,6 +8,6 @@
   .field
     = f.text_area :title
   .field
-    = f.collection_check_boxes user_ids, User.all, :id, :name
+    = f.collection_check_boxes :user_ids, User.all, :id, :name
   .actions
     = f.submit 'Save'
