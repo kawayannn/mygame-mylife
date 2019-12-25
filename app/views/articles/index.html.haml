@@ -1,5 +1,9 @@
 = render 'shared/header'
 %main
-  .tag_choice
-    タグから検索
-  = render 'articles'
+  .tag_search
+    %i
+      タグから検索
+    = form_tag search_gametitles_path, method: :get do
+      = text_field_tag :keyword
+      = submit_tag '検索'
+  = render 'articles'    
