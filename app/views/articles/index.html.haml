@@ -1,9 +1,8 @@
 = render 'shared/header'
 %main
   .tag_search
-    %i
-      タグから検索
-    = form_tag search_gametitles_path, method: :get do
-      = text_field_tag :keyword
-      = submit_tag '検索'
+    %input#gametitle-search-field{:placeholder => "タグで検索", :type => "text"}/
+    %ul#gametitle-search-results
+    - if @result.present?    
+      = "#{@result.name}タグで検索"
   = render 'articles'    

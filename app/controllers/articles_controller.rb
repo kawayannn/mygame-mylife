@@ -6,6 +6,7 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     @articles = params[:gametitle_id].present? ? Gametitle.find(params[:gametitle_id]).articles.order(created_at: :DESC) : Article.order(created_at: :DESC)
+    @result = params[:gametitle_id].present? ? Gametitle.find(params[:gametitle_id]) : ""
   end
 
   # GET /articles/1
