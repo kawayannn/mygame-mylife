@@ -1,5 +1,8 @@
 = render 'shared/header'
 %main
-  .tag_choice
-    タグから検索
-  = render 'articles'
+  .tag_search
+    %input#gametitle-search-field{:placeholder => "タグで検索", :type => "text"}/
+    %ul#gametitle-search-results
+    - if @result.present?    
+      = "#{@result.name}タグで検索"
+  = render 'articles'    

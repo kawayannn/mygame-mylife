@@ -1,0 +1,15 @@
+= form_for @group do |f|
+  - if @group.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@group.errors.count, "error")} prohibited this group from being saved:"
+      %ul
+        - @group.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.text_area :title, placeholder: 'グループ名を入力してください'
+  .field
+    = f.collection_check_boxes :user_ids, User.all, :id, :name
+  .field
+    = f.collection_check_boxes :gametitle_ids, Gametitle.all, :id, :name
+  .actions
+    = f.submit 'Save'

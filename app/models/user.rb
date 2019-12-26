@@ -9,6 +9,9 @@ class User < ApplicationRecord
 
   has_many :user_gametitles, dependent: :destroy
   has_many :gametitles, through: :user_gametitles
+
+  has_many :group_users, dependent: :destroy
+  has_many :group, through: :group_users
   
   has_many :relationships
   has_many :followings, through: :relationships, source: :follow

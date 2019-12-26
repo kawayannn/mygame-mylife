@@ -1,0 +1,10 @@
+%h1
+  グループ一覧
+.groups
+  - @groups.each do |group|
+    .group
+      = group.title
+      = render partial: 'shared/tags', locals: { hoge: group }
+      .delete
+        = link_to "/groups/#{group.id}", method: :delete do
+          = fa_icon 'trash'
