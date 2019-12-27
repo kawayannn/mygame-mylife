@@ -1,7 +1,7 @@
 %h1
   グループ一覧
 .groups
-  - @groups.each do |group|
+  - current_user.groups.order(created_at: :DESC).each do |group|
     .group
       = group.title
       = render partial: 'shared/tags', locals: { hoge: group }
