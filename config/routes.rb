@@ -2,10 +2,13 @@ Rails.application.routes.draw do
   devise_for :users
   root to:'articles#index'
 
-  resources :groups,        only:[:new, :create, :index, :destroy]
   resources :users,         only:[:index, :show]
 
-  resources :gametitles do
+  resources :groups,        only:[:new, :create, :index, :destroy] do
+    resources :messages,    only:[:index, :create]
+  end
+
+  resources :gametitles,    only:[:index, :search] do
     collection do
       get :search
     end
