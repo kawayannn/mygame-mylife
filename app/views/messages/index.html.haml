@@ -1,0 +1,8 @@
+- @group.messages.each do |message|
+  = "#{message.user.name}さん"
+  = message.content
+
+= form_for [@group, @message] do |f|
+  = f.text_field :content
+  = f.submit '送信'
+  

@@ -3,10 +3,11 @@ before_action :set_group
 
 def index
   @messages = @group.messages
+  @message = Message.new
 end
 
 def create
-  @message = Messagfe.new
+  @message = @group.messages.new(message_params)
   if @message.save
     respond_to do |format|
       format.html{redirect_to group_messages_path(@group)}
@@ -25,7 +26,7 @@ def set_group
 end
 
 def message_params
-  params.require(:message).permit(:content).mearge(user_id: current_user.id)
+  params.require(:message).permit(:content).merge(user_id: current_user.id)
 end
 
 end
