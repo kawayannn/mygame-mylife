@@ -1,6 +1,15 @@
 .groups{
+  margin-bottom: 20px;
+  a{
+    color: black;
+  }
+  a:hover{
+    color: black;
+    text-decoration: none;
+  }
   &__group{
     border: solid;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
+    background-color: white;
   }
 }
