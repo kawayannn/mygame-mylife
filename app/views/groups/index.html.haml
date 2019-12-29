@@ -2,7 +2,7 @@
   グループ一覧
 .groups
   - current_user.groups.order(created_at: :DESC).each do |group|
-    .group
+    .groups__group
       = group.title
       = render partial: 'shared/tags', locals: { hoge: group }
       .delete
