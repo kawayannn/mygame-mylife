@@ -42,3 +42,26 @@
     }
   }
 }
+
+.group-header{
+  height: 79px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 50px;
+  background-image: url("group-bg-img.jpg");
+  color: white;
+  &__group-image{
+    float: left;
+    margin-right: 18px;
+    img{
+      width: 55px;
+    }
+  }
+  &__name{
+    font-size: 14px;
+    
+  }
+  &__user-length{
+    font-size: 12px;
+  }
+}

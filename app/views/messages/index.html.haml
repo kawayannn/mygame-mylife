@@ -1,7 +1,18 @@
 = render partial: 'shared/header'
 %main
-.group-title
-  = @group.title
+.group-header
+  .group-header__group-image
+    = image_tag @group.image.url
+  .group-header__name
+    = @group.title
+  .group-header__user-length
+    = fa_icon 'users'
+    = "#{@group.users.length}人"
+    |
+    = fa_icon 'gamepad'
+    - if @group.gametitles.present?
+      - @group.gametitles.each do |g|
+        = g.name
 
 .messages
   - @group.messages.each do |message|
