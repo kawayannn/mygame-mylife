@@ -1,12 +1,31 @@
-%h1
-  グループ一覧
-.groups
-  - current_user.groups.order(created_at: :DESC).each do |group|
-    = link_to group_messages_path(group.id) do
-      .groups__group
-        = image_tag group.image.url
-        = group.title
-        = render partial: 'shared/tags', locals: { hoge: group }
-        -# .delete
-        -#   = link_to "/groups/#{group.id}", method: :delete do
-        -#     = fa_icon 'trash'
+= render 'shared/header'
+%main
+  = link_to new_group_path do
+    .create-group
+      %button.btn.bg-white.btn-lg.btn-block.border{tyoe: "button"}
+        = fa_icon 'plus'
+        グループを作る
+
+  .groups
+    - current_user.groups.order(created_at: :DESC).each do |group|
+      = link_to group_messages_path(group.id) do
+        .groups__group.shadow.mb-5.rounded
+          .groups__group--uper
+            .image
+              = image_tag group.image.url
+            .info
+              .title
+                = group.title
+              .user-length
+                = fa_icon 'user'
+                = group.users.length
+                |
+                = group.created_at.strftime("%Y/%m/%d %H:%M")
+
+          .groups__group--lower
+            - if group.messages.present? 
+              .message
+                = group.messages.last.content
+            - else
+              メッセージが投稿されていません
+                  

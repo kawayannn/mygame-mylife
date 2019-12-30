@@ -1,3 +1,8 @@
+.create-group{
+  margin: 12px;
+  background-color: white;
+}
+
 .groups{
   margin-bottom: 20px;
   a{
@@ -8,11 +13,32 @@
     text-decoration: none;
   }
   &__group{
-    border: solid;
-    margin-bottom: 30px;
-    background-color: white;
-    img{
-      width: 70px;
+    margin: 16px;
+    background-color: tan;
+    &--uper{
+      display: flex;
+      position: relative;
+      padding: 10px;
+      height: 90px;
+      img{
+        width: 70px;
+      }
+      .info{
+        margin-left: 5px;
+        .title{
+          top: 0;
+        }
+        .user-length{
+          position: absolute;
+          bottom: 10px;
+          margin: 0;
+        }
+      }
+    }
+    &--lower{
+      background-color: white;
+      height: 60px;
+      line-height: 60px;
     }
   }
 }
