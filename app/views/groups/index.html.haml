@@ -4,6 +4,7 @@
   - current_user.groups.order(created_at: :DESC).each do |group|
     = link_to group_messages_path(group.id) do
       .groups__group
+        = image_tag group.image.url
         = group.title
         = render partial: 'shared/tags', locals: { hoge: group }
         -# .delete

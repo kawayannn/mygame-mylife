@@ -1,6 +1,13 @@
-- @group.messages.each do |message|
-  = "#{message.user.name}さん"
-  = message.content
+= render partial: 'shared/header'
+%main
+.group-title
+  = @group.title
+
+.messages
+  - @group.messages.each do |message|
+    .messages__message
+      = render partial: 'shared/user', locals: { hoge: message }
+      = message.content
 
 = form_for [@group, @message] do |f|
   = f.text_field :content
