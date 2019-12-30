@@ -1,26 +1,30 @@
 = render partial: 'shared/header'
-%main
-.group-header
-  .group-header__group-image
-    = image_tag @group.image.url
-  .group-header__name
-    = @group.title
-  .group-header__user-length
-    = fa_icon 'users'
-    = "#{@group.users.length}人"
-    |
-    = fa_icon 'gamepad'
-    - if @group.gametitles.present?
-      - @group.gametitles.each do |g|
-        = g.name
+%main.group
+  .group-header
+    .group-header__left
+      .group-header__left--group-image
+        = image_tag @group.image.url
+      .group-header__left--name
+        = @group.title
+      .group-header__left--user-length
+        = fa_icon 'users'
+        = "#{@group.users.length}人"
+        |
+        = fa_icon 'gamepad'
+        - if @group.gametitles.present?
+          - @group.gametitles.each do |g|
+            = g.name
+    #group-header__right
+      コメントする
+      = fa_icon 'comment', class: "message-icon"
 
-.messages
-  - @group.messages.each do |message|
-    .messages__message
-      = render partial: 'shared/user', locals: { hoge: message }
-      = message.content
+  .messages
+    - @group.messages.each do |message|
+      .messages__message
+        = render partial: 'shared/user', locals: { hoge: message }
+        = message.content
 
-= form_for [@group, @message] do |f|
-  = f.text_field :content
-  = f.submit '送信'
-  
+  = form_for [@group, @message] do |f|
+    = f.text_area :content
+    = f.submit '送信'
+    

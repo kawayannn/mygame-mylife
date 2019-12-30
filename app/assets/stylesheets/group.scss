@@ -42,26 +42,45 @@
     }
   }
 }
-
-.group-header{
-  height: 79px;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  padding-left: 50px;
-  background-image: url("group-bg-img.jpg");
-  color: white;
-  &__group-image{
-    float: left;
-    margin-right: 18px;
-    img{
-      width: 55px;
+main.group{
+  padding-top: 175px;
+  .group-header{
+    height: 79px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 50px;
+    background-image: url("group-bg-img.jpg");
+    color: white;
+    position: fixed;
+    top: 50px;
+    right: 0;
+    left: 0;
+    bottom: auto;
+    z-index: 20;
+    &__left{
+      float: left;
+      width: 300px;
+      &--group-image{
+        margin-right: 18px;
+        float: left;
+        img{
+          width: 55px;
+          height: 55px;
+        }
+      }
+      &--name{
+        font-size: 14px;
+        
+      }
+      &--user-length{
+        font-size: 12px;
+      }
     }
-  }
-  &__name{
-    font-size: 14px;
-    
-  }
-  &__user-length{
-    font-size: 12px;
+    #group-header__right{
+      float: right;
+      line-height: 55px;
+      margin-right: 60px;
+      color: palegreen;
+    }
   }
 }
