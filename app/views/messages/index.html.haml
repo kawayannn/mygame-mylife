@@ -14,7 +14,7 @@
         - if @group.gametitles.present?
           - @group.gametitles.each do |g|
             = g.name
-    #group-header__right
+    #group-header__right{data: {group_id: "#{@group.id}"}}
       コメントする
       = fa_icon 'comment', class: "message-icon"
 
@@ -24,7 +24,7 @@
         = render partial: 'shared/user', locals: { hoge: message }
         = message.content
 
-  = form_for [@group, @message] do |f|
-    = f.text_area :content
-    = f.submit '送信'
+  -# = form_for [@group, @message] do |f|
+  -#   = f.text_area :content
+  -#   = f.submit '送信'
     
