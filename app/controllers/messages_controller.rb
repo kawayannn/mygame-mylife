@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
 before_action :set_group
 
 def index
-  @messages = @group.messages
+  @messages = @group.messages.order(created_at: :desc)
   @message = Message.new
 end
 
