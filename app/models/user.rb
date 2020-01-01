@@ -38,5 +38,9 @@ class User < ApplicationRecord
   def following?(other_user)
     self.followings.include?(other_user)
   end
+
+  def already_liked?(article)
+    self.likes.exists?(article_id: article.id)
+  end
   
 end
