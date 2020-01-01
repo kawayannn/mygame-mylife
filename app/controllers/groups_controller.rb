@@ -4,7 +4,6 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.json
   def index
-    @groups = Group.all
   end
 
   # GET /groups/1
@@ -74,6 +73,6 @@ class GroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
-      params.require(:group).permit(:title, user_ids: [], gametitle_ids: []).merge(leader_id: current_user.id)
+      params.require(:group).permit(:title, :image, user_ids: [], gametitle_ids: []).merge(leader_id: current_user.id)
     end
 end

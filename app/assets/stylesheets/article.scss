@@ -1,5 +1,5 @@
 main{
-  padding-top: 50px;
+  padding-top: 60px;
   .articles{
     &__article{
       width: 80%;
@@ -21,6 +21,7 @@ main{
       &--lower{
         height: 20px;
         line-height: 20px;
+        margin-bottom: 5px;
         .tags{
           float: left;
         }

@@ -11,5 +11,7 @@
     = f.collection_check_boxes :user_ids, User.all, :id, :name
   .field
     = f.collection_check_boxes :gametitle_ids, Gametitle.all, :id, :name
+  .field
+    = f.file_field :image
   .actions
     = f.submit 'Save'

@@ -1,0 +1,37 @@
+= render partial: 'shared/header'
+%main.group
+  .group-header
+    .group-header__left
+      .group-header__left--group-image
+        = image_tag @group.image.url
+      .group-header__left--name
+        = @group.title
+      .group-header__left--user-length
+        = fa_icon 'users'
+        = "#{@group.users.length}人"
+        |
+        = fa_icon 'gamepad'
+        - if @group.gametitles.present?
+          - @group.gametitles.each do |g|
+            = g.name
+    #group-header__right{data: {group_id: "#{@group.id}"}}
+      %button.btn.btn-success{type: "button"}
+        コメントする
+        = fa_icon 'comment', class: "message-icon"
+
+  .messages
+    - @messages.each do |message|
+      .messages__message
+        .messages__message--uper
+          = render partial: 'shared/user', locals: { hoge: message }
+          = message.created_at.strftime("%Y/%m/%d %H:%M")
+        .messages__message--main
+          = message.content
+        .messages__message--lower
+          
+
+
+  -# = form_for [@group, @message] do |f|
+  -#   = f.text_area :content
+  -#   = f.submit '送信'
+    
