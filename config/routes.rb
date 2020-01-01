@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :groups,        only:[:new, :create, :index, :destroy] do
     resources :messages,    only:[:index, :create]
+    resources :likes,       only:[:create, :destroy]
   end
 
   resources :gametitles,    only:[:index, :search] do
