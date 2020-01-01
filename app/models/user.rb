@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :articles
   has_many :comments
+  has_many :messages
 
   has_many :user_gametitles, dependent: :destroy
   has_many :gametitles, through: :user_gametitles
