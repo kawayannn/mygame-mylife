@@ -49,7 +49,10 @@ main.group{
     padding-top: 12px;
     padding-bottom: 12px;
     padding-left: 50px;
-    background-image: url("group-bg-img.jpg");
+    background-image: url("group-header-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
     color: white;
     position: fixed;
     top: 50px;
@@ -81,6 +84,49 @@ main.group{
       line-height: 55px;
       margin-right: 60px;
       color: palegreen;
+      cursor: pointer;
     }
   }
 }
+  .build-form{
+    position: fixed;
+    height: 400px;
+    width: 600px;
+    top:calc(50% - 400px/2);
+    left:calc(50% - 600px/2);
+    
+    z-index: 30;
+    background-color: white;
+    
+    .new_message{
+      width: 100%;
+      height: 100%;
+      &__uper{
+        height: 40px;
+        width: 100%;
+        border-bottom: inset;
+        button{
+          margin-left: 15px;
+          float: left;
+          color: black;
+          line-height: 40px;
+        }
+        button:hover{
+          color: black;
+        }
+      }
+      textarea{
+        width: 100%;
+        height: -webkit-calc(100% - 80px);
+        border: none;
+      }
+      &__lower{
+        height: 40px;
+        line-height: 40px;
+        &--right{
+          float: right;
+          margin-right: 10px;
+        }
+      }
+    }
+  }

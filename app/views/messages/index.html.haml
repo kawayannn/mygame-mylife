@@ -15,8 +15,9 @@
           - @group.gametitles.each do |g|
             = g.name
     #group-header__right{data: {group_id: "#{@group.id}"}}
-      コメントする
-      = fa_icon 'comment', class: "message-icon"
+      %button.btn.btn-success{type: "button"}
+        コメントする
+        = fa_icon 'comment', class: "message-icon"
 
   .messages
     - @group.messages.each do |message|
