@@ -6,7 +6,6 @@ Rails.application.routes.draw do
 
   resources :groups,        only:[:new, :create, :index, :destroy] do
     resources :messages,    only:[:index, :create]
-    resources :likes,       only:[:create, :destroy]
   end
 
   resources :gametitles,    only:[:index, :search] do
@@ -17,6 +16,7 @@ Rails.application.routes.draw do
 
   resources :articles do
     resources :comments,      only:[:create] 
+    resources :likes,       only:[:create, :destroy]
     collection do
       get :search
     end
