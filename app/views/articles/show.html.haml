@@ -9,13 +9,6 @@
       = @article.content
     .article__lower
       = render partial: 'shared/tags', locals: { hoge: @article }
-      .delete
-        = link_to "/articles/#{@article.id}", method: :delete do
-          = fa_icon 'trash'
-        |
-        = link_to 'Edit', edit_article_path(@article)
-        |
-        = link_to 'Back', articles_path
       .like
         - if current_user.already_liked?(@article)
           = link_to article_like_path(@article), method: :delete do
@@ -25,7 +18,14 @@
             = fa_icon 'thumbs-up', class: "thumbs-up"
         いいね数
         = @article.likes.length
-              
+      .delete
+        - if @article.user.id == current_user.id         
+          = link_to "/articles/#{@article.id}", method: :delete do
+            = fa_icon 'trash'
+          |
+          = link_to 'Edit', edit_article_path(@article)
+          |
+        = link_to 'Back', articles_path              
 
   .comments
     - @comments.each do |c|
