@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to:'articles#index'
+  post   '/like/:article_id' => 'likes#like',   as: 'like'
+  delete '/like/:article_id' => 'likes#unlike', as: 'unlike'
 
   resources :users,         only:[:index, :show]
 
@@ -16,7 +18,6 @@ Rails.application.routes.draw do
 
   resources :articles do
     resources :comments,      only:[:create] 
-    resources :likes,       only:[:create, :destroy]
     collection do
       get :search
     end

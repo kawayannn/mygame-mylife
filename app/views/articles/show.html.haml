@@ -9,15 +9,7 @@
       = @article.content
     .article__lower
       = render partial: 'shared/tags', locals: { hoge: @article }
-      .like
-        - if current_user.already_liked?(@article)
-          = link_to article_like_path(@article), method: :delete do
-            = fa_icon 'thumbs-up', class: "thumbs-up-cancel"
-        - else
-          = link_to article_likes_path(@article), method: :post do
-            = fa_icon 'thumbs-up', class: "thumbs-up"
-        いいね数
-        = @article.likes.length
+      = render 'like'
       .delete
         - if @article.user.id == current_user.id         
           = link_to "/articles/#{@article.id}", method: :delete do

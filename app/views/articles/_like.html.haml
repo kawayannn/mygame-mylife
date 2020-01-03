@@ -1,0 +1,9 @@
+.like-link{id: "like-link-#{@article.id}"}
+  - if current_user.already_liked?(@article)
+    = link_to unlike_path(@article.id), method: :delete, remote: true do
+      = fa_icon 'thumbs-up', class: "thumbs-up-cancel"
+  - else
+    = link_to like_path(@article.id), method: :post, remote: true do
+      = fa_icon 'thumbs-up', class: "thumbs-up"
+  いいね数
+  = @article.likes.length
