@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to:'articles#index'
+  post   '/like/:article_id' => 'likes#like',   as: 'like'
+  delete '/like/:article_id' => 'likes#unlike', as: 'unlike'
 
   resources :users,         only:[:index, :show]
 

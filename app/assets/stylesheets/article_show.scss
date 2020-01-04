@@ -21,10 +21,11 @@ main{
       &__lower{
         height: 20px;
         line-height: 20px;
+        margin-bottom: 5px;
         .tags{
           float: left;
         }
-        .show_link{
+        .like-link{
           float: left;
         }
         .delete{

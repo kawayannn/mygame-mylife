@@ -1,4 +1,4 @@
-window.addEventListener("load", function() {
+window.addEventListener('DOMContentLoaded', function() {
   let btn = document.querySelector("#group-header__right");
   group_id = $("#group-header__right").data('group-id');
 
@@ -23,9 +23,11 @@ window.addEventListener("load", function() {
                 </div>`
     return html
   }
+  if (btn != null){
   btn.addEventListener("click", function() {
     $("main.group").append(formHTML);
   });
+}
 
   $(document).on("click", ".close", function(){
     $(".build-form").remove();
