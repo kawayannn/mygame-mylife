@@ -6,8 +6,5 @@
           .title
             = article.title
           = render partial: 'shared/user', locals: { hoge: article }    
-        .thumbnail
+        .articles__article--thumbnail
           = image_tag article.image.url
-          = link_to "/articles/#{article.id}", method: :delete do
-            = fa_icon 'trash'
-

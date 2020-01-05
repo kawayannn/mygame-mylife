@@ -1,8 +1,31 @@
 = render 'shared/header'
-%main
-  .tag_search
-    %input#gametitle-search-field{:placeholder => "タグで検索", :type => "text"}/
-    %ul#gametitle-search-results
-    - if @result.present?    
-      = "#{@result.name}タグで検索"
+%main.article_index
   = render 'articles'    
+.right
+  .right__contents
+    .tag_search
+      %input#gametitle-search-field{:placeholder => "タグで検索", :type => "text"}/
+      %ul#gametitle-search-results
+      - if @result.present?    
+        = "#{@result.name}タグで検索"
+    .tags_popular
+      .text.text-success
+        人気のタグ
+      .tag
+        ああああああああああ
+      .tag
+        あああああああ
+      .tag
+        ああああああああ
+      .tag
+        ああああああああああああ
+      .tag
+        ああああ
+      .tag
+        ああああああ
+      .tag
+        あああああああ
+      .tag
+        ああああああ
+    
+    

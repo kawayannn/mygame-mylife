@@ -1,35 +1,66 @@
-main{
-  padding-top: 60px;
-  .articles{
-    &__article{
-      width: 80%;
-      margin-right: auto;
-      margin-left: auto;
-      margin-top: 20px;
-      margin-bottom: 15px;
-      padding: 15px;
-      background-color: white;
-      &--uper{
-        .title{
-          font-size: larger;
-          font-weight: bold;
+.wrapper{
+  overflow: hidden;
+  position: relative;
+  zoom: 1;
+  main.article_index{
+    padding-top: 60px;
+    padding-left: 5px;
+    float: left;
+    width: -webkit-calc(100% - 300px);
+    .articles{
+      &__article{
+        width: 240px;
+        height: 330px;
+        margin-right: 10px;
+        display: inline-block;
+        margin-left: auto;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        padding: 15px;
+        background-color: white;
+        &--uper{
+          .title{
+            font-size: larger;
+            font-weight: bold;
+            height: 46px;
+          }
+        }
+        &--thumbnail{
+          img{
+            width: 210px;
+            height: 210px;
+            margin-top: 3px;
+          }
         }
       }
-      &--main{
-        margin-bottom: 20px;
+    }
+  }
+  .right{
+    width: 300px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: auto;
+    padding-top: 100px;
+    padding-right: 10px;
+    margin: 5px;
+      &__contents{
+        background-color: white;
+        overflow: hidden;
+        position: relative;
+        zoom: 1;    
+        padding: 8px;
+      .tag_search{
       }
-      &--lower{
-        height: 20px;
-        line-height: 20px;
-        margin-bottom: 5px;
-        .tags{
-          float: left;
+      .tags_popular{
+        margin-bottom: 7px;
+        .text{
+          border-bottom: inset;
         }
-        .show_link{
+        .tag{
           float: left;
-        }
-        .delete{
-          float: right;
+          margin-right: 5px;
+          margin-top: 3px;
         }
       }
     }
