@@ -8,6 +8,7 @@ class ArticlesController < ApplicationController
   def index
     @articles = params[:gametitle_id].present? ? Gametitle.find(params[:gametitle_id]).articles.order(created_at: :DESC) : Article.order(created_at: :DESC)
     @result = params[:gametitle_id].present? ? Gametitle.find(params[:gametitle_id]) : ""
+    @rank = params[:gametitle_id].present? ? Gametitle.find(params[:gametitle_id]).articles.order(impressions_count: :desc).take(5) : Article.order(impressions_count: :desc).take(5)
   end
 
   # GET /articles/1
