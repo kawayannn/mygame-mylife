@@ -11,6 +11,8 @@
       = render partial: 'shared/tags', locals: { hoge: @article }
       = render 'like'
       .delete
+        pv数:
+        = @article.impressionist_count
         - if @article.user.id == current_user.id         
           = link_to "/articles/#{@article.id}", method: :delete do
             = fa_icon 'trash'

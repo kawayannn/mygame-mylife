@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :set_gametitles
+  impressionist :actions=> [:show]
 
   # GET /articles
   # GET /articles.json
@@ -16,6 +17,7 @@ class ArticlesController < ApplicationController
     @comments = @article.comments
     @comment = Comment.new
     @like = Like.new
+    impressionist(@article, nil, unique: [:session_hash])
   end
 
   # GET /articles/new
