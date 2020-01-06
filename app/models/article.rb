@@ -9,6 +9,6 @@ class Article < ApplicationRecord
   has_many :liked_users, through: :likes, source: :user
 
   mount_uploader :image, ArticleThumbnailsUploader
-  is_impressionable
+  is_impressionable counter_cache: true
   
 end

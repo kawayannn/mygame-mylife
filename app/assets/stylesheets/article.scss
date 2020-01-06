@@ -47,13 +47,12 @@
       &__contents{
         background-color: white;
         overflow: hidden;
-        position: relative;
-        zoom: 1;    
         padding: 8px;
       .tag_search{
       }
       .tags_popular{
-        margin-bottom: 7px;
+        margin-bottom: 9px;
+        overflow: hidden;
         .text{
           border-bottom: inset;
         }
@@ -61,6 +60,12 @@
           float: left;
           margin-right: 5px;
           margin-top: 3px;
+        }
+      }
+      .ranking{
+        clear: both;
+        .text{
+          border-bottom: inset;
         }
       }
     }
