@@ -49,6 +49,7 @@
         overflow: hidden;
         padding: 8px;
       .tag_search{
+        margin-bottom: 8px;
       }
       .tags_popular{
         margin-bottom: 9px;
@@ -83,6 +84,12 @@
         }
         .rank-5{
           margin-left: 14px;
+        }
+      }
+      .tag_recommend{
+        margin-bottom: 8px;
+        .text{
+          border-bottom: inset;
         }
       }
     }
