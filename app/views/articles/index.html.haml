@@ -27,17 +27,4 @@
         あああああああ
       .tag
         ああああああ
-    .ranking
-      .text.text-success
-        - if @result.present?
-          = "#{@result.name}の人気記事"
-        - else
-          ランキング
-      - @rank.each do |rank|
-        .title
-          = link_to article_path(rank), method: :get do
-            = rank.title
-          
-      -# = @articles.impressionist_count.sort_by{|k,v| rank}
-      -# - @articles.order('mpressionist_count desc').each do |ranking|
-      -#   = ranking.title
+    = render 'ranking'
