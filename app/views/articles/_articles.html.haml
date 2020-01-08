@@ -8,3 +8,4 @@
           = render partial: 'shared/user', locals: { hoge: article }    
         .articles__article--thumbnail
           = image_tag article.image.url
+= paginate @articles
