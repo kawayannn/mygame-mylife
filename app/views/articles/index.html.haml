@@ -4,37 +4,11 @@
 .right
   .right__contents.shadow.p-3.mb-5.rounded
     .tag_search
-      %input#gametitle-search-field{:placeholder => "タグで検索", :type => "text"}/
+      %input#gametitle-search-field{:placeholder => "タイトルを検索", :type => "text"}/
       %ul#gametitle-search-results
       - if @result.present?    
         = "#{@result.name}タグで検索"
-    - if @recommends.present?
-      .tag_recommend 
-        .text.text-success
-          あなたへのおすすめ
-        - @recommends.each do |recommend|
-          = link_to articles_path(gametitle_id: recommend), method: :get do
-            %button.btn.btn-outline-secondary
-              = fa_icon 'gamepad'
-              = recommend.name
-        
-    .tags_popular
-      .text.text-success
-        人気のタイトル
-      .tag
-        ああああああああああ
-      .tag
-        あああああああ
-      .tag
-        ああああああああ
-      .tag
-        ああああああああああああ
-      .tag
-        ああああ
-      .tag
-        ああああああ
-      .tag
-        あああああああ
-      .tag
-        ああああああ
+    
+    = render 'recommends'
+    = render 'populars'        
     = render 'ranking'

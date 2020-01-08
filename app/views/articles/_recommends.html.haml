@@ -1,0 +1,9 @@
+- if @recommends.present? 
+  .tag_recommend 
+    .text.text-success
+      あなたへのおすすめ
+    - @recommends.each do |tag|
+      = link_to articles_path(gametitle_id: tag), method: :get do
+        %button.btn.btn-outline-secondary
+          = fa_icon 'gamepad'
+          = tag.name

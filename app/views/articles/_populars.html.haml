@@ -1,0 +1,8 @@
+.tags_popular
+  .text.text-success
+    人気のタイトル
+  - @populars.each do |tag|
+    = link_to articles_path(gametitle_id: tag), method: :get do
+      %button.btn.btn-outline-secondary
+        = fa_icon 'gamepad'
+        = tag.name

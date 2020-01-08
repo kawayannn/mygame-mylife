@@ -10,6 +10,7 @@ class ArticlesController < ApplicationController
     @result = params[:gametitle_id].present? ? Gametitle.find(params[:gametitle_id]) : ""
     @rank = params[:gametitle_id].present? ? Gametitle.find(params[:gametitle_id]).articles.order(impressions_count: :desc).take(5) : Article.order(impressions_count: :desc).take(5)
     @recommends = current_user.gametitles
+    @populars = Gametitle.order(user_gametitle_count: :desc).take(6)
   end
 
   # GET /articles/1
