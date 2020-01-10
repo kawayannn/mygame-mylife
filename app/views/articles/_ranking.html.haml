@@ -1,0 +1,13 @@
+.ranking
+  .text.text-success
+    - if @result.present?
+      = "#{@result.name}の人気記事"
+    - else
+      人気の記事
+  - @rank.each_with_index do |rank, i|
+    .title{class: "rank-#{i+1}"}
+      - if (i < 3)
+        = fa_icon 'circle', class: "circle-#{i+1}"
+      = link_to article_path(rank), method: :get do
+        = (i + 1)
+        = rank.title

@@ -1,18 +1,11 @@
 .articles
   - @articles.each do |article|
-    .articles__article.shadow.p-3.mb-5.rounded
-      .articles__article--uper
-        .title
-          = article.title
-        = render partial: 'shared/user', locals: { hoge: article }          
-      .articles__article--main
-        = article.content
-      .articles__article--lower
-        = render partial: 'shared/tags', locals: { hoge: article }
-        .show_link
-          = link_to article_path(article.id), method: :get do
-            続きを読む
-        .delete
-          = link_to "/articles/#{article.id}", method: :delete do
-            = fa_icon 'trash'
-
+    = link_to article_path(article.id), method: :get do
+      .articles__article.shadow.p-3.mb-5.rounded
+        .articles__article--uper
+          .title
+            = article.title
+          = render partial: 'shared/user', locals: { hoge: article }    
+        .articles__article--thumbnail
+          = image_tag article.image.url
+= paginate @articles

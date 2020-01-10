@@ -1,8 +1,14 @@
 = render 'shared/header'
-%main
-  .tag_search
-    %input#gametitle-search-field{:placeholder => "タグで検索", :type => "text"}/
-    %ul#gametitle-search-results
-    - if @result.present?    
-      = "#{@result.name}タグで検索"
+%main.article_index
   = render 'articles'    
+.right
+  .right__contents.shadow.p-3.mb-5.rounded
+    .tag_search
+      %input#gametitle-search-field{:placeholder => "タイトルを検索", :type => "text"}/
+      %ul#gametitle-search-results
+      - if @result.present?    
+        = "#{@result.name}タグで検索"
+    
+    = render 'recommends'
+    = render 'populars'        
+    = render 'ranking'

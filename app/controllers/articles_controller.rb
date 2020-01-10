@@ -1,12 +1,16 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :set_gametitles
+  impressionist :actions=> [:show]
 
   # GET /articles
   # GET /articles.json
   def index
-    @articles = params[:gametitle_id].present? ? Gametitle.find(params[:gametitle_id]).articles.order(created_at: :DESC) : Article.order(created_at: :DESC)
+    @articles = params[:gametitle_id].present? ? Gametitle.find(params[:gametitle_id]).articles.order(created_at: :DESC).page(params[:page]).per(8) : Article.order(created_at: :DESC).page(params[:page]).per(8)
     @result = params[:gametitle_id].present? ? Gametitle.find(params[:gametitle_id]) : ""
+    @rank = params[:gametitle_id].present? ? Gametitle.find(params[:gametitle_id]).articles.order(impressions_count: :desc).take(5) : Article.order(impressions_count: :desc).take(5)
+    @recommends = current_user.gametitles
+    @populars = Gametitle.order(user_gametitle_count: :desc).take(6)
   end
 
   # GET /articles/1
@@ -16,6 +20,7 @@ class ArticlesController < ApplicationController
     @comments = @article.comments
     @comment = Comment.new
     @like = Like.new
+    impressionist(@article, nil, unique: [:session_hash])
   end
 
   # GET /articles/new

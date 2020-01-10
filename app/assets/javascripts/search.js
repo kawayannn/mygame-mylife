@@ -3,10 +3,14 @@ $(function(){
     var search_list = $("#gametitle-search-results");
     var search_all = `
     <li>
-      <a class="gametitle-all" data-method="get" href="/articles">
-        全てのゲーム
+      <a class="gametitle-search-result" data-method="get" href="/">
+        <button type="button" class="btn btn-outline-secondary">
+          <i class="fa fa-tag tags__tag--icon">
+          </i>
+          全てのゲーム
+        </button>
       </a>
-    </li>
+     </li>
     `
 
     function appendResult(result){
@@ -43,12 +47,12 @@ $(function(){
     .done(function(results){
       $("#gametitle-search-results").empty();
       if (results.length !== 0) {
+        search_list.append(search_all)
         results.forEach(function(result){
           appendResult(result);
         });
       }
       else if(input.length == 0) {
-        search_list.append(search_all)
       }
       else{
         appendNoGametitle();
