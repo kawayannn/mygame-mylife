@@ -14,10 +14,16 @@
         - if @group.gametitles.present?
           - @group.gametitles.each do |g|
             = g.name
-    #group-header__right{data: {group_id: "#{@group.id}"}}
-      %button.btn.btn-success{type: "button"}
-        コメントする
-        = fa_icon 'comment', class: "message-icon"
+    - if @group.join?(current_user.id)
+      #group-header__right{data: {group_id: "#{@group.id}"}}
+        %button.btn.btn-success#create_message{type: "button"}
+          コメントする
+          = fa_icon 'comment', class: "message-icon"
+    - else
+      #group-header__right
+        %button.btn.btn-success#join{type: "button"}
+          グループに参加する
+          = fa_icon 'plus', class: "plus-icon"
 
   .messages
     - @messages.each do |message|
