@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', function() {
-  let btn = document.querySelector("#group-header__right");
+  let formBtn = document.querySelector("#create_message");
   group_id = $("#group-header__right").data('group-id');
 
   function formHTML(group){
@@ -23,8 +23,8 @@ window.addEventListener('DOMContentLoaded', function() {
                 </div>`
     return html
   }
-  if (btn != null){
-  btn.addEventListener("click", function() {
+  if (formBtn != null){
+  formBtn.addEventListener("click", function() {
     $("main.group").append(formHTML);
   });
 }
