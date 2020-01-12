@@ -20,7 +20,7 @@
           コメントする
           = fa_icon 'comment', class: "message-icon"
     - else
-      = form_for @group do |f|
+      = form_for  @group, :url => {controller: "groups", action: "join", method: :update} do |f|
         #group-header__right
           - @group.users.each do |user|
             %input{name: "group[user_ids][]", type: "hidden", value: user.id}

@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:show, :edit, :update, :destroy]
+  before_action :set_group, only: [:show, :edit, :update, :destroy, :join]
 
   # GET /groups
   # GET /groups.json
@@ -66,7 +66,7 @@ class GroupsController < ApplicationController
   end
   
   def join
-    if @group.update(group_params)
+    if @group.update(group_join)
       redirect_to group_messages_path(@group)
     end
   end
@@ -74,7 +74,7 @@ class GroupsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_group
-      @group = Group.find(params[:id])
+      @group = Group.find(params[:group_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -83,6 +83,6 @@ class GroupsController < ApplicationController
     end
 
     def group_join
-      params.require(:group).permit(:user_ids).merge(user_ids: @group.user_ids)
+      params.require(:group).permit(user_ids: [])
     end
 end
