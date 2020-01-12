@@ -3,10 +3,11 @@ Rails.application.routes.draw do
   root to:'articles#index'
   post   '/like/:article_id' => 'likes#like',   as: 'like'
   delete '/like/:article_id' => 'likes#unlike', as: 'unlike'
+  post   '/group/:group_id/join' => 'groups#join'
 
   resources :users,         only:[:index, :show]
 
-  resources :groups,        only:[:new, :create, :index, :destroy] do
+  resources :groups,        only:[:new, :create, :index, :destroy, :update] do
     resources :messages,    only:[:index, :create]
   end
 

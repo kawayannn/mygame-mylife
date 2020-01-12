@@ -46,7 +46,7 @@ class GroupsController < ApplicationController
   def update
     respond_to do |format|
       if @group.update(group_params)
-        format.html { redirect_to @group, notice: 'Group was successfully updated.' }
+        format.html { redirect_to group_messages_path(@group), notice: 'Group was successfully updated.' }
         format.json { render :show, status: :ok, location: @group }
       else
         format.html { render :edit }
@@ -64,6 +64,12 @@ class GroupsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def join
+    if @group.update(group_params)
+      redirect_to group_messages_path(@group)
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -74,5 +80,9 @@ class GroupsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
       params.require(:group).permit(:title, :image, user_ids: [], gametitle_ids: []).merge(leader_id: current_user.id)
+    end
+
+    def group_join
+      params.require(:group).permit(:user_ids).merge(user_ids: @group.user_ids)
     end
 end

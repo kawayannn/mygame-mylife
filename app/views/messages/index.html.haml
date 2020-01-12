@@ -20,11 +20,12 @@
           コメントする
           = fa_icon 'comment', class: "message-icon"
     - else
-      #group-header__right
-        %button.btn.btn-success#join{type: "button"}
-          グループに参加する
-          = fa_icon 'plus', class: "plus-icon"
-
+      = form_for @group do |f|
+        #group-header__right
+          - @group.users.each do |user|
+            %input{name: "group[user_ids][]", type: "hidden", value: user.id}
+          %input{name: "group[user_ids][]", type: "hidden", value: current_user.id}
+          %input{type: "submit", class: "btn btn-success", value: "グループに参加する"}
   .messages
     - @messages.each do |message|
       .messages__message
