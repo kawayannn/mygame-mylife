@@ -91,12 +91,25 @@ main.group{
     position: fixed;
     top: 129px;
     width: 100%;
+    background-color: white;
+    height: 45px;
+    line-height: 45px;
+    .active{
+      border-bottom: 3px inset;
+    }
     #group-header-low__left{
+      width: 50%;
       float: left;
+      text-align: center;
     }
     #group-header-low__right{
+      width: 50%;
       float: right;
+      text-align: center;
     }
+  }
+  #messages-memo{
+    padding-top: 20px;
   }
 }
   .build-form{

@@ -27,23 +27,15 @@
           %input{name: "group[user_ids][]", type: "hidden", value: current_user.id}
           %input{type: "submit", class: "btn btn-success", value: "グループに参加する"}
         
-  .group-header-low
-    #group-header-low__left
-      = link_to group_messages_path(@group), method: :get, remote: true do
+  .group-header-low.shadow
+    = link_to group_messages_path(@group), method: :get, remote: true, id: "messages-btn" do
+      #group-header-low__left.active
         チャット
-    #group-header-low__right
-      = link_to group_path(@group.id), method: :get, remote: true do
+    = link_to group_path(@group.id), method: :get, remote: true, id: "memo-btn" do
+      #group-header-low__right
         グループ情報
   #messages-memo
-    - @messages.each do |message|
-      .messages__message
-        .messages__message--uper
-          = render partial: 'shared/user', locals: { hoge: message }
-          = message.created_at.strftime("%Y/%m/%d %H:%M")
-        .messages__message--main
-          = message.content
-        .messages__message--lower
-
+    = render 'messages'
   -# = form_for [@group, @message] do |f|
   -#   = f.text_area :content
   -#   = f.submit '送信'
