@@ -87,6 +87,17 @@ main.group{
       color: palegreen;
     }
   }
+  .group-header-low{
+    position: fixed;
+    top: 129px;
+    width: 100%;
+    #group-header-low__left{
+      float: left;
+    }
+    #group-header-low__right{
+      float: right;
+    }
+  }
 }
   .build-form{
     position: fixed;

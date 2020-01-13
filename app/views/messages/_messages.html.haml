@@ -1,0 +1,8 @@
+- @messages.each do |message|
+  .messages__message
+    .messages__message--uper
+      = render partial: 'shared/user', locals: { hoge: message }
+      = message.created_at.strftime("%Y/%m/%d %H:%M")
+    .messages__message--main
+      = message.content
+    .messages__message--lower
