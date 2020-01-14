@@ -1,3 +1,5 @@
 .user_info
-  = image_tag hoge.user.image.url
-  = hoge.user.name
+  = link_to user_path(current_user) do
+    = image_tag hoge.user.image.url, class: "rounded-circle"
+  .user_info__user_name
+    = hoge.user.name

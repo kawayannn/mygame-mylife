@@ -109,7 +109,32 @@ main.group{
     }
   }
   #messages-memo{
+    width: 70%;
+    right: 0;
+    margin: auto;
     padding-top: 20px;
+    .messages{
+      &__message{
+        margin-bottom: 20px;
+        &--uper{
+          display: flex;
+          height: 40px;
+          line-height: 40px;
+          margin-bottom: 7px;
+          .created_at{
+            margin-left: 15px;
+            color: #999;
+          }
+        }
+        &--main{
+          width: 90%;
+          right: 0;
+          margin-left: auto;
+          margin-right: auto;
+          padding-bottom: 7px;
+        }
+      }
+    }
   }
 }
   .build-form{
