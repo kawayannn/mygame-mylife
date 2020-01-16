@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:edit, :update, :destroy, :join]
+  before_action :set_group, only: [:edit, :update, :join, :exit]
 
   # GET /groups
   # GET /groups.json
@@ -9,6 +9,7 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.json
   def show
+    # binding.pry
     @group = Group.find(params[:id])
   end
 
@@ -67,9 +68,15 @@ class GroupsController < ApplicationController
   end
   
   def join
-    if @group.update(group_join)
-      redirect_to group_messages_path(@group)
-    end
+    group_users = current_user.group_users.new(group_id: @group.id)
+    group_users.save
+    redirect_to group_messages_path(@group)
+  end
+
+  def exit
+    group_users = current_user.group_users.find_by(group_id: @group.id)
+    group_users.destroy
+    redirect_to group_messages_path(@group)
   end
 
   private

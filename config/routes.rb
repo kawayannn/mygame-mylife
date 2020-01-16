@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   root to:'articles#index'
   post   '/like/:article_id' => 'likes#like',   as: 'like'
   delete '/like/:article_id' => 'likes#unlike', as: 'unlike'
-  patch   '/group/:group_id/join' => 'groups#join'
+  post   '/join/:group_id' => 'groups#join', as: 'join'
+  delete   '/exit/:group_id' => 'groups#exit', as: 'exit'
 
   resources :users,         only:[:index, :show]
 

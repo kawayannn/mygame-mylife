@@ -20,12 +20,10 @@
           コメントする
           = fa_icon 'comment', class: "message-icon"
     - else
-      = form_for  @group, :url => {controller: "groups", action: "join", method: :update} do |f|
-        #group-header__right
-          - @group.users.each do |user|
-            %input{name: "group[user_ids][]", type: "hidden", value: user.id}
-          %input{name: "group[user_ids][]", type: "hidden", value: current_user.id}
-          %input{type: "submit", class: "btn btn-success", value: "グループに参加する"}
+      #group-header__right
+        = link_to join_path(@group.id), method: :post do
+          %button.btn.btn-success{type: "button"}
+            グループに参加する
         
   .group-header-low.shadow
     = link_to group_messages_path(@group), method: :get, remote: true, id: "messages-btn" do

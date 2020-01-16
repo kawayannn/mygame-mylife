@@ -1,2 +1,6 @@
-%h1.hello
-  hello world
+.memo
+  = @group.memo
+- if @group.join?(current_user.id)
+  = link_to exit_path(@group.id), method: :delete do
+    %button.btn.btn-danger{type: "button"}
+      グループを抜ける
