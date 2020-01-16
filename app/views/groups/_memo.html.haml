@@ -1,5 +1,9 @@
 .memo
+  = "#{@group.title}のグループメモ"
   = @group.memo
+= link_to edit_group_path(@group.id), method: :get do
+  %button.btn.btn-success{type: "button"}
+    グループを編集する
 - if @group.join?(current_user.id)
   = link_to exit_path(@group.id), method: :delete do
     %button.btn.btn-danger{type: "button"}

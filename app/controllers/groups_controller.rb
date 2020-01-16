@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:edit, :update, :join, :exit]
+  before_action :set_group, only: [:join, :exit]
 
   # GET /groups
   # GET /groups.json
@@ -21,6 +21,7 @@ class GroupsController < ApplicationController
 
   # GET /groups/1/edit
   def edit
+    @group = Group.find(params[:id])
   end
 
   # POST /groups
@@ -46,13 +47,10 @@ class GroupsController < ApplicationController
   # PATCH/PUT /groups/1
   # PATCH/PUT /groups/1.json
   def update
-    respond_to do |format|
+    @group = Group.find(params[:id])
+    if current_user.id == @group.leader_id
       if @group.update(group_params)
-        format.html { redirect_to group_messages_path(@group), notice: 'Group was successfully updated.' }
-        format.json { render :show, status: :ok, location: @group }
-      else
-        format.html { render :edit }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
+        redirect_to group_messages_path(@group)
       end
     end
   end
@@ -87,7 +85,7 @@ class GroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
-      params.require(:group).permit(:title, :image, user_ids: [], gametitle_ids: []).merge(leader_id: current_user.id)
+      params.require(:group).permit(:title, :image, :memo, user_ids: [], gametitle_ids: []).merge(leader_id: current_user.id)
     end
 
     def group_join
