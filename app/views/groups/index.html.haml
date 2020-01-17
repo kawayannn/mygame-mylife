@@ -5,9 +5,14 @@
       %button.btn.bg-white.btn-lg.btn-block.border{tyoe: "button"}
         = fa_icon 'plus'
         グループを作る
+  .tag_search
+    %input#group-search-field{:placeholder => "グループを検索", :type => "text"}/
+    %ul#gametitle-search-results
+    - if @result.present?    
+      = "#{@result.name}タグで検索"
 
   .groups
-    - current_user.groups.order(created_at: :DESC).each do |group|
+    - @groups.each do |group|
       = link_to group_messages_path(group.id) do
         .groups__group.shadow.mb-5.rounded
           .groups__group--uper

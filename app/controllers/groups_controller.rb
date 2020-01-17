@@ -4,6 +4,7 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.json
   def index
+    @groups = params[:gametitle_id].present? ? Gametitle.find(params[:gametitle_id]).groups.order(created_at: :DESC) : current_user.groups.order(created_at: :DESC)
   end
 
   # GET /groups/1
