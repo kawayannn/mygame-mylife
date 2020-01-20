@@ -1,0 +1,10 @@
+$("#messages-memo").html('<%= escape_javascript(render "messages") %>');
+  var messages = document.getElementById( "group-header-low__left" );
+  var memo = document.getElementById("group-header-low__right");
+
+if (!$( "#group-header-low__left" ).children().hasClass('active')){
+  messages.classList.add("active");
+  memo.classList.remove("active");
+}
+
+console.log('ok');

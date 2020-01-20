@@ -30,11 +30,15 @@
   }
 }
 .user_info{
-  height: 35px;
   width: fit-content;
-  line-height: 25px;
+  line-height: 35px;
+  display: flex;
+  padding: 3px;
   img{
     width: 35px;
     height: 35px;
+  }
+  &__user_name{
+    margin-left: 7px;
   }
 }

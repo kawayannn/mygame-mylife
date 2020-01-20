@@ -14,23 +14,26 @@
         - if @group.gametitles.present?
           - @group.gametitles.each do |g|
             = g.name
-    #group-header__right{data: {group_id: "#{@group.id}"}}
-      %button.btn.btn-success{type: "button"}
-        コメントする
-        = fa_icon 'comment', class: "message-icon"
-
-  .messages
-    - @messages.each do |message|
-      .messages__message
-        .messages__message--uper
-          = render partial: 'shared/user', locals: { hoge: message }
-          = message.created_at.strftime("%Y/%m/%d %H:%M")
-        .messages__message--main
-          = message.content
-        .messages__message--lower
-          
-
-
+    - if @group.join?(current_user.id)
+      #group-header__right{data: {group_id: "#{@group.id}"}}
+        %button.btn.btn-success#create_message{type: "button"}
+          コメントする
+          = fa_icon 'comment', class: "message-icon"
+    - else
+      #group-header__right
+        = link_to join_path(@group.id), method: :post do
+          %button.btn.btn-success{type: "button"}
+            グループに参加する
+        
+  .group-header-low.shadow
+    = link_to group_messages_path(@group), method: :get, remote: true, id: "messages-btn" do
+      #group-header-low__left.active
+        チャット
+    = link_to group_path(@group.id), method: :get, remote: true, id: "memo-btn" do
+      #group-header-low__right
+        グループ情報
+  #messages-memo
+    = render 'messages'
   -# = form_for [@group, @message] do |f|
   -#   = f.text_area :content
   -#   = f.submit '送信'

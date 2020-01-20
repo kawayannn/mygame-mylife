@@ -85,7 +85,55 @@ main.group{
       line-height: 55px;
       margin-right: 60px;
       color: palegreen;
-      cursor: pointer;
+    }
+  }
+  .group-header-low{
+    position: fixed;
+    top: 129px;
+    width: 100%;
+    background-color: white;
+    height: 45px;
+    line-height: 45px;
+    .active{
+      border-bottom: 3px inset;
+    }
+    #group-header-low__left{
+      width: 50%;
+      float: left;
+      text-align: center;
+    }
+    #group-header-low__right{
+      width: 50%;
+      float: right;
+      text-align: center;
+    }
+  }
+  #messages-memo{
+    width: 70%;
+    right: 0;
+    margin: auto;
+    padding-top: 20px;
+    .messages{
+      &__message{
+        margin-bottom: 20px;
+        &--uper{
+          display: flex;
+          height: 40px;
+          line-height: 40px;
+          margin-bottom: 7px;
+          .created_at{
+            margin-left: 15px;
+            color: #999;
+          }
+        }
+        &--main{
+          width: 90%;
+          right: 0;
+          margin-left: auto;
+          margin-right: auto;
+          padding-bottom: 7px;
+        }
+      }
     }
   }
 }
