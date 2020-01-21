@@ -1,2 +1,8 @@
 = render 'shared/header'
-= render partial: 'shared/tags', locals: { hoge: current_user }
+%main
+  .user-data
+    - if @user.id == current_user.id
+      aaa
+    - else
+      bbb
+        

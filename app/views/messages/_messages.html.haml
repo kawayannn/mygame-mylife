@@ -2,7 +2,7 @@
   - @messages.each do |message|
     .messages__message.shadow.bg-white
       .messages__message--uper
-        = render partial: 'shared/user', locals: { hoge: message }
+        = render partial: 'shared/user', locals: { hoge: message, user_id: message.user.id }
         .created_at
           = message.created_at.strftime("%Y/%m/%d %H:%M")
       .messages__message--main
