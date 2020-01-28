@@ -1,6 +1,7 @@
 = render 'shared/header'
 %main
   .user-data
+    = render partial: 'shared/user', locals: { user: @user }, layout: 
     - if @user.id == current_user.id
       プロフィールの変更
     - else
