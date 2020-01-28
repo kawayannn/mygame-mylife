@@ -2,7 +2,7 @@
 %main
   .user-data
     - if @user.id == current_user.id
-      aaa
+      プロフィールの変更
     - else
-      bbb
+      = render partial: 'shared/follow', locals: { user: @user }
         
