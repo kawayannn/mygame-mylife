@@ -143,17 +143,28 @@ main.group{
     }
     .memo{
       line-height: 1.5;
-      border-bottom: 1px solid #ddd;
       padding-bottom: 12px;
     }
     .buttons{
       padding-top: 6px;
       right: 0;
       text-align: center;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #ddd;
       li{
         margin-bottom: 3px;
         button{
           width: 100%;
+        }
+      }
+    }
+    .members{
+      li{
+        background-color: white;
+        margin-bottom: 3px;
+        display: flex;
+        .follow-btn{
+          margin: auto 12px auto auto;
         }
       }
     }

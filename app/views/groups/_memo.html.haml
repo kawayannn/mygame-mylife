@@ -16,11 +16,15 @@
           グループを抜ける
 %ul.members
   %li.leader
-    = @group.leader.name
+    = render partial: 'shared/user', locals: { user: @group.leader, user_id: @group.leader.id }
+    .follow-btn
+      = render partial: 'shared/follow', locals: { user: @group.leader }
   - @group.users.each do |member|
     - if member.id != @group.leader_id
       %li.member
-        = member.name
+        = render partial: 'shared/user', locals: { user: member, user_id: member.id }
+        .follow-btn
+          = render partial: 'shared/follow', locals: { user: member }
     
   -# - @group.users.each do |member|
   -#   %li.member
