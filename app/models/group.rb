@@ -7,6 +7,8 @@ class Group < ApplicationRecord
   has_many :group_users, dependent: :destroy
   has_many :users, through: :group_users
 
+  belongs_to :leader, class_name: 'User', dependent: :destroy
+
   mount_uploader :image, GroupImageUploader
 
   def join?(user_id)

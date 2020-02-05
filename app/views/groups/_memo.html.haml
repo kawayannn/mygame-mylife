@@ -14,3 +14,10 @@
       = link_to exit_path(@group.id), method: :delete do
         %button.btn.btn-danger{type: "button"}
           グループを抜ける
+%ul.members
+  %li.leader
+    = @group.leader.name
+  -# - @group.users.each do |member|
+  -#   %li.member
+  -#     = member.name
+    
