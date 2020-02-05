@@ -17,6 +17,11 @@
 %ul.members
   %li.leader
     = @group.leader.name
+  - @group.users.each do |member|
+    - if member.id != @group.leader_id
+      %li.member
+        = member.name
+    
   -# - @group.users.each do |member|
   -#   %li.member
   -#     = member.name
