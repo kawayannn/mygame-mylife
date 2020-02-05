@@ -95,7 +95,7 @@ main.group{
     height: 45px;
     line-height: 45px;
     .active{
-      border-bottom: 3px inset;
+      border-bottom: 3px inset #337ab7;
     }
     #group-header-low__left{
       width: 50%;
@@ -132,6 +132,39 @@ main.group{
           margin-left: auto;
           margin-right: auto;
           padding-bottom: 7px;
+        }
+      }
+    }
+
+    .memo_title{
+      color: #999;
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+    .memo{
+      line-height: 1.5;
+      padding-bottom: 12px;
+    }
+    .buttons{
+      padding-top: 6px;
+      right: 0;
+      text-align: center;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #ddd;
+      li{
+        margin-bottom: 3px;
+        button{
+          width: 100%;
+        }
+      }
+    }
+    .members{
+      li{
+        background-color: white;
+        margin-bottom: 3px;
+        display: flex;
+        .follow-btn{
+          margin: auto 12px auto auto;
         }
       }
     }
@@ -179,3 +212,4 @@ main.group{
       }
     }
   }
+

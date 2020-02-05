@@ -5,7 +5,7 @@
         .articles__article--uper
           .title
             = article.title
-          = render partial: 'shared/user', locals: { hoge: article }    
+          = render partial: 'shared/user', locals: { user: article.user, user_id: article.user.id}    
         .articles__article--thumbnail
           = image_tag article.image.url
 = paginate @articles

@@ -1,12 +1,32 @@
-.memo
+.memo_title
+  = fa_icon 'sticky-note'
   = "#{@group.title}のグループメモ"
+.memo
   = @group.memo
-- if current_user.id == @group.leader_id
-  
-  = link_to edit_group_path(@group.id), method: :get do
-    %button.btn.btn-success{type: "button"}
-      グループを編集する
-- if @group.join?(current_user.id)
-  = link_to exit_path(@group.id), method: :delete do
-    %button.btn.btn-danger{type: "button"}
-      グループを抜ける
+%ul.buttons
+  - if current_user.id == @group.leader_id
+    %li
+      = link_to edit_group_path(@group.id), method: :get do
+        %button.btn.btn-success{type: "button"}
+          グループを編集する
+  - if @group.join?(current_user.id)
+    %li
+      = link_to exit_path(@group.id), method: :delete do
+        %button.btn.btn-danger{type: "button"}
+          グループを抜ける
+%ul.members
+  %li.leader
+    = render partial: 'shared/user', locals: { user: @group.leader, user_id: @group.leader.id }
+    .follow-btn
+      = render partial: 'shared/follow', locals: { user: @group.leader }
+  - @group.users.each do |member|
+    - if member.id != @group.leader_id
+      %li.member
+        = render partial: 'shared/user', locals: { user: member, user_id: member.id }
+        .follow-btn
+          = render partial: 'shared/follow', locals: { user: member }
+    
+  -# - @group.users.each do |member|
+  -#   %li.member
+  -#     = member.name
+    
