@@ -12,6 +12,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @comments = @user.comments
+    @messages = @user.messages
+    @activity = []
+    @activity = @comments + @messages
+    # @activity = @comments.push(@messages)
+    # @activity = @activity.flatten!
   end
 
 

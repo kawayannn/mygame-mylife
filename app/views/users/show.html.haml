@@ -1,9 +1,16 @@
 = render 'shared/header'
 %main
   .user-data
-    = render partial: 'shared/user', locals: { user: @user }, layout: 
+    = render partial: 'shared/user', locals: { user: @user, user_id: @user.id}
     - if @user.id == current_user.id
       プロフィールの変更
     - else
       = render partial: 'shared/follow', locals: { user: @user }
-        
+  #user
+    .activity
+      - @activity.order(:created_at).each do |active|
+        .active
+          - if activ.has_attribute?(:content)
+            = active.content
+          - elsif activ.has_attribute?(:text)
+            = active.text

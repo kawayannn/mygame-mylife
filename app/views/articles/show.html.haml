@@ -4,7 +4,7 @@
     .article__uper
       .title
         = @article.title
-      = render partial: 'shared/user', locals: { hoge: @article, user_id: @article.user.id}          
+      = render partial: 'shared/user', locals: { user: @article.user, user_id: @article.user.id}          
     .article__main
       = @article.content
     .article__lower
