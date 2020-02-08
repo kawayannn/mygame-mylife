@@ -29,7 +29,7 @@
           = comment.text
     
     = form_for [@article, @comment] do |f|
-      = f.text_area :text
+      = f.text_area :text, placeholder: '252文字以内'
       .submit-btn
         = f.submit "Send", { :class => 'submit-btn' }
       
