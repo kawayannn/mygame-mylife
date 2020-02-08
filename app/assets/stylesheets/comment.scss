@@ -1,0 +1,31 @@
+.comments{
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20px;
+  padding: 15px;
+  background-color: white;
+  form{
+    margin-top: 20px;
+  }
+}
+.comment{
+  border-bottom: 1px solid #e6e6e6;
+  p{
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+}
+
+
+.new_comment{
+  display: flex;
+  #comment_text{
+    height: 80px;
+    width: -webkit-calc(100% - 80px);
+  }
+  .submit-btn{
+    width: 100px;
+    height: 80px;
+  }
+}

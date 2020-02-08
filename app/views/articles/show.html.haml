@@ -22,12 +22,16 @@
         = link_to 'Back', articles_path              
 
   .comments
-    - @comments.each do |c|
-      = c.user.name
-      = c.text
+    - @comments.each do |comment|
+      .comment
+        = render partial: 'shared/user', locals: { user: comment.user, user_id: comment.user.id}
+        %p
+          = comment.text
+    
     = form_for [@article, @comment] do |f|
       = f.text_area :text
-      = f.submit 
+      .submit-btn
+        = f.submit "Send", { :class => 'submit-btn' }
       
       
     
