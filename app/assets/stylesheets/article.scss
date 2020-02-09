@@ -95,3 +95,24 @@
     }
   }
 }
+
+.article_form{
+  text-align: center;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20px;
+  padding: 15px;
+  background-color: white;
+  .title-field{
+    width: 100%;
+    height: 60px;
+    font-size: large;
+  }
+  .content-field{
+    width: 100%;
+    height: 600px;
+    font-size: large;
+    padding: 8px;
+  }
+}
