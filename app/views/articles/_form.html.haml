@@ -8,21 +8,18 @@
         - article.errors.full_messages.each do |message|
           %li= message
   .field
-    = form.label :title
+    = form.label :title, "タイトル"
     = form.text_field :title, { :class => 'title-field' }
   .field
-    = form.label :content
+    = form.label :content, "本文"
     = form.text_area :content, { :class => 'content-field' }
-  .field
-    = form.label :image
-    = form.file_field :image
+  .thumbnail-field
+    .input-group.mb-3
+      .custom-file
+        = form.file_field :image, class: "custom-file-input", id: "inputGroupFileAddon01"
+        = form.label :image, class: "custom-file-label" do
+          サムネイル
   .field
     = form.collection_check_boxes :gametitle_ids, Gametitle.all, :id, :name
-    -# - @gametitles.each do |gametitle|
-      -# = form.check_box :gametitle_ids,
-      -#   { multiple: true,checked: @article.gametitle.present? ? @article.gametitle.split(",").include?(gametitle) : false},gametitle, nil
-      -# %span
-      -#   = tag
-    -# = form.collection_select :gametitle_ids, Gametitle.all, :id, :name
   .actions
     = form.submit
