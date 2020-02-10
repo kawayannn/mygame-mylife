@@ -122,3 +122,19 @@
     margin-top: 15px;
   }
 }
+
+#add-gametitle-search-field{
+  text-align: center;
+  height: 39px;
+  width: 100%;
+  border: 1px solid #ccc;
+}
+#add-gametitle-search-results{
+  max-height: 80px;
+  overflow: scroll;
+  border: 1px solid #ccc;
+  .result{
+    border: 1px solid #ccc;
+    height: 30px;
+  }
+}

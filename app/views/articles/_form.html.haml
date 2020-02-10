@@ -20,6 +20,18 @@
         = form.label :image, class: "custom-file-label" do
           サムネイル
   .field
-    = form.collection_check_boxes :gametitle_ids, Gametitle.all, :id, :name
+    .tag_search
+      %input#add-gametitle-search-field{:placeholder => "タグを追加しよう", :type => "text"}/
+      %ul#add-gametitle-search-results
+        %li.result
+          test1
+        %li.result
+          test2
+        %li.result
+          test3
+        %li.result
+          test4
+
+    -# = form.collection_check_boxes :gametitle_ids, Gametitle.all, :id, :name
   .actions
     = form.submit
