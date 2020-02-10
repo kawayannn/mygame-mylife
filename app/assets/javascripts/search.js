@@ -37,7 +37,6 @@ $(function(){
                   `
                   
       return html;
-      // search_list.append(html);
     }
 
   $("#gametitle-search-field").on("keyup", function(){
@@ -138,7 +137,7 @@ $(function(){
     var html = `
                 <li>
                   <div class="btn btn-outline-secondary">
-                  <input type="hidden" value="${id}" name="article[gametitle_ids][]" id="article_gametitle_ids_"${id}">
+                  <input class="added-gametitle" type="hidden" value="${id}" name="article[gametitle_ids][]" id="article_gametitle_ids_"${id}">
                     <i class="fa fa-tag"></i>
                     ${name}
                   </div>
@@ -147,8 +146,11 @@ $(function(){
   $("#added-gametitles").append(html);
 }
 
+  const addedGametitles = []
+
   $("#add-gametitle-search-field").on("keyup", function(){
     input = $("#add-gametitle-search-field").val();
+    
     $.ajax({
       type: 'GET',
       url: '/gametitles/search',
@@ -159,7 +161,9 @@ $(function(){
       $("#add-gametitle-search-results").empty();
       if (results.length !== 0) {
         results.forEach(function(result) {
-          buildGametitleList(result);
+          if (addedGametitles.indexOf(result.id) == -1) {
+            buildGametitleList(result);
+          }
         });
       }
       else if(input.length == 0) {
@@ -170,15 +174,17 @@ $(function(){
       }
     })
   });
-
+  
   $(document).on("click", ".add-gametitle", function() {
     
     const gametitleName = $(this).attr("data-gametitle-name");
     const gametitleId = $(this).attr("data-gametitle-id");
-    console.log(gametitleName)
+    addedGametitles.push(Number($(this).attr("data-gametitle-id")))
+    
     $(this)
       .remove();
     addedGametitleList(gametitleName, gametitleId);
+    
   });
 
 });
