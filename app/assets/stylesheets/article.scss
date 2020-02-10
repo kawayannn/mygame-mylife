@@ -136,5 +136,12 @@
   .result{
     border: 1px solid #ccc;
     height: 30px;
+    line-height: 30px;
+  }
+}
+#added-gametitles{
+  display: inline-flex;
+  li{
+    margin-right: 5px;
   }
 }
