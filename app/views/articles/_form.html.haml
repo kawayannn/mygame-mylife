@@ -13,18 +13,22 @@
   .field
     = form.label :content, "本文"
     = form.text_area :content, { :class => 'content-field' }
-  .thumbnail-field
-    .input-group.mb-3
-      .custom-file
-        = form.file_field :image, class: "custom-file-input", id: "inputGroupFileAddon01"
-        = form.label :image, class: "custom-file-label" do
-          サムネイル
-  .field
-    .tag_search
-      %input#add-gametitle-search-field{:placeholder => "タグを追加しよう", :type => "text"}/
-      %ul#add-gametitle-search-results
-      
-      %ul#added-gametitles
+
+  - case controller.action_name
+  - when "new"
+    
+    .thumbnail-field
+      .input-group.mb-3
+        .custom-file
+          = form.file_field :image, class: "custom-file-input", id: "inputGroupFileAddon01"
+          = form.label :image, class: "custom-file-label" do
+            サムネイル
+    .field
+      .tag_search
+        %input#add-gametitle-search-field{:placeholder => "タグを追加しよう", :type => "text"}/
+        %ul#add-gametitle-search-results
+        
+        %ul#added-gametitles
 
     -# = form.collection_check_boxes :gametitle_ids, Gametitle.all, :id, :name
   .actions
