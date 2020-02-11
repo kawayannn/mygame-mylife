@@ -52,7 +52,7 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1.json
   def update
     respond_to do |format|
-      if @article.update(article_params)
+      if @article.update(article_update_params)
         format.html { redirect_to @article, notice: 'Article was successfully updated.' }
         format.json { render :show, status: :ok, location: @article }
       else
@@ -81,6 +81,10 @@ class ArticlesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
       params.require(:article).permit(:title, :content, :image, gametitle_ids: []).merge(user_id: current_user.id)
+    end
+
+    def article_update_params
+      params.require(:article).permit(:title, :content)
     end
 
     def set_gametitles
