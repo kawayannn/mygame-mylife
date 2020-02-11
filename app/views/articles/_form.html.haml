@@ -31,5 +31,8 @@
         %ul#added-gametitles
 
     -# = form.collection_check_boxes :gametitle_ids, Gametitle.all, :id, :name
-  .actions
-    = form.submit '投稿する', class: "create-article-btn" 
+    .actions
+      = form.submit '投稿する', class: "create-article-btn" 
+  - when "edit"
+    .actions
+      = form.submit '編集する', class: "update-article-btn" 
