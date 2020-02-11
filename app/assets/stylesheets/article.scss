@@ -48,8 +48,18 @@
         background-color: white;
         overflow: hidden;
         padding: 8px;
+      .article-new-link{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        #new-article-path-btn{
+          width: 100%;
+        }
+      }
       .tag_search{
         margin-bottom: 8px;
+        #gametitle-search-field{
+          width: 100%;
+        }
       }
       .tags_popular{
         margin-bottom: 9px;
