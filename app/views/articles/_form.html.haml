@@ -8,21 +8,31 @@
         - article.errors.full_messages.each do |message|
           %li= message
   .field
-    = form.label :title
-    = form.text_field :title
+    = form.label :title, "タイトル"
+    = form.text_field :title, { :class => 'title-field' }
   .field
-    = form.label :content
-    = form.text_area :content
-  .field
-    = form.label :image
-    = form.file_field :image
-  .field
-    = form.collection_check_boxes :gametitle_ids, Gametitle.all, :id, :name
-    -# - @gametitles.each do |gametitle|
-      -# = form.check_box :gametitle_ids,
-      -#   { multiple: true,checked: @article.gametitle.present? ? @article.gametitle.split(",").include?(gametitle) : false},gametitle, nil
-      -# %span
-      -#   = tag
-    -# = form.collection_select :gametitle_ids, Gametitle.all, :id, :name
-  .actions
-    = form.submit
+    = form.label :content, "本文"
+    = form.text_area :content, { :class => 'content-field' }
+
+  - case controller.action_name
+  - when "new"
+    
+    .thumbnail-field
+      .input-group.mb-3
+        .custom-file
+          = form.file_field :image, class: "custom-file-input", id: "inputGroupFileAddon01"
+          = form.label :image, class: "custom-file-label" do
+            サムネイル
+    .field
+      .tag_search
+        %input#add-gametitle-search-field{:placeholder => "タグを追加しよう", :type => "text"}/
+        %ul#add-gametitle-search-results
+        
+        %ul#added-gametitles
+
+    -# = form.collection_check_boxes :gametitle_ids, Gametitle.all, :id, :name
+    .actions
+      = form.submit '投稿する', class: "create-article-btn" 
+  - when "edit"
+    .actions
+      = form.submit '編集する', class: "update-article-btn" 

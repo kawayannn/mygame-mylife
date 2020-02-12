@@ -3,12 +3,16 @@
   = render 'articles'    
 .right
   .right__contents.shadow.p-3.mb-5.rounded
+    .article-new-link
+      = link_to new_article_path do
+        %button.btn.btn-outline-primary#new-article-path-btn
+          記事を作成
     .tag_search
       %input#gametitle-search-field{:placeholder => "タイトルを検索", :type => "text"}/
       %ul#gametitle-search-results
       - if @result.present?    
         = "#{@result.name}タグで検索"
-    
+       
     = render 'recommends'
     = render 'populars'        
     = render 'ranking'

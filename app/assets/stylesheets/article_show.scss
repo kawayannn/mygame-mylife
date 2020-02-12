@@ -17,6 +17,8 @@ main{
       }
       &__main{
         margin-bottom: 20px;
+        white-space: pre-wrap;
+        word-break: break-all;
       }
       &__lower{
         height: 20px;
