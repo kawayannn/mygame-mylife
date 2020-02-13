@@ -51,6 +51,8 @@ class GroupsController < ApplicationController
     if current_user.id == @group.leader_id
       if @group.update(group_params)
         redirect_to group_messages_path(@group)
+      else
+        redirect_to edit_group_path(@group)
       end
     end
   end
