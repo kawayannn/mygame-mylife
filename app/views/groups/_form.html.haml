@@ -13,6 +13,8 @@
     .field
       = f.label :memo, "グループメモ"
       = f.text_area :memo, class: "group-memo-field" 
+  - case controller.action_name
+  - when "new"
     .field
       .tag_search
         %label
