@@ -17,7 +17,6 @@ class GroupsController < ApplicationController
   # GET /groups/new
   def new
     @group = Group.new
-    @group.users << current_user
   end
 
   # GET /groups/1/edit
@@ -30,7 +29,7 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     if @group.save
-      redirect_to root_path
+      redirect_to group_messages_path(@group)
     else
       render :new
     end
@@ -86,7 +85,7 @@ class GroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
-      params.require(:group).permit(:title, :image, :memo, user_ids: [], gametitle_ids: []).merge(leader_id: current_user.id)
+      params.require(:group).permit(:title, :image, :memo, gametitle_ids: []).merge(leader_id: current_user.id, user_ids: current_user.id )
     end
 
     def group_join

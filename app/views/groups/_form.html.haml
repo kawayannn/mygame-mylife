@@ -5,15 +5,33 @@
       %ul
         - @group.errors.full_messages.each do |message|
           %li= message
-  .field
-    = f.text_area :title, placeholder: 'グループ名を入力してください'
-  .field
-    = f.collection_check_boxes :user_ids, User.all, :id, :name
-  .field
-    = f.collection_check_boxes :gametitle_ids, Gametitle.all, :id, :name
-  .field
-    = f.file_field :image
-  .field
-    = f.text_area :memo, placeholder: 'グループのメモ'
-  .actions
-    = f.submit 'Save'
+  .main
+    .field
+      = f.label :title, "グループ名"
+      = f.text_area :title, class: "group-name-field" 
+    
+    .field
+      = f.label :memo, "グループメモ"
+      = f.text_area :memo, class: "group-memo-field" 
+    .field
+      .tag_search
+        %label
+          ゲームタイトル
+        %input#add-gametitle-search-field{:type => "text"}/
+        %ul#add-gametitle-search-results
+        
+        %ul#added-gametitles
+    
+  .lower
+    .lower__left
+      .lower__left--group-icon
+        = f.label :image do
+          = fa_icon 'picture-o', class: "picture-icon"
+          = f.file_field :image, class: 'mask__label--image'
+    .lower__right
+      .lower__right--back
+        .btn.btn-warning
+          = link_to 'Back', groups_path
+      .lower__right--submit
+        = f.submit 'Save', class: "btn btn-primary"
+      
