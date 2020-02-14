@@ -14,7 +14,7 @@ def create
       format.json
     end
   else
-    flash.now[:alert] = 'error'
+    redirect_to group_messages_path(@group)
   end
 end
 

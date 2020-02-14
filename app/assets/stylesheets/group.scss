@@ -37,9 +37,12 @@
       }
     }
     &--lower{
-      background-color: white;
-      height: 60px;
-      line-height: 60px;
+      background-color: white; 
+      .memo{
+        height: 60px;     
+        overflow: hidden;
+        word-break: break-all;  
+      }
     }
   }
 }
