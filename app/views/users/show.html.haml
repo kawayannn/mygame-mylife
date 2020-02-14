@@ -1,6 +1,9 @@
 = render 'shared/header'
 %main
   .user-data
+    .uper.progress
+      .bg-img.progress.progress-bar-striped.bg-info{style: "width: 100%", role: "progressbar"}\
+
     = render partial: 'shared/user', locals: { user: @user, user_id: @user.id }
     - if @user.id == current_user.id
       プロフィールの変更
