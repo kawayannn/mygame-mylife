@@ -9,6 +9,10 @@ class Group < ApplicationRecord
 
   belongs_to :leader, class_name: 'User', dependent: :destroy
 
+  validates :title, :memo, presence: true
+  validates :title, length: {maximum: 40}
+  validates :memo, length: {maximum: 500}
+
   mount_uploader :image, GroupImageUploader
 
   def join?(user_id)

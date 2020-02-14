@@ -37,9 +37,12 @@
       }
     }
     &--lower{
-      background-color: white;
-      height: 60px;
-      line-height: 60px;
+      background-color: white; 
+      .memo{
+        height: 60px;     
+        overflow: hidden;
+        word-break: break-all;  
+      }
     }
   }
 }
@@ -132,6 +135,8 @@ main.group{
           margin-left: auto;
           margin-right: auto;
           padding-bottom: 7px;
+          white-space: pre-wrap;
+          word-break: break-all;
         }
       }
     }
@@ -144,6 +149,8 @@ main.group{
     .memo{
       line-height: 1.5;
       padding-bottom: 12px;
+      white-space: pre-wrap;
+      word-break: break-all;
     }
     .buttons{
       padding-top: 6px;
@@ -213,3 +220,48 @@ main.group{
     }
   }
 
+.form-default{
+  .main{
+    margin-bottom: 30px;
+    .group-name-field{
+      width: 100%;
+      height: 35px;
+      line-height: 35px;
+      padding-left: 8px;
+    }
+    .group-memo-field{
+      width: 100%;
+      height: 150px;
+      padding: 8px;
+    }
+  }
+  .lower{
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+    height: 42px;
+    line-height: 42px;
+    &__left{
+      margin-left: 8px;
+      float: left;
+      &--group-icon{
+        height: 32px;
+        line-height: 32px;
+        .picture-icon{
+          font-size: xx-large;
+        }
+        input{
+          display: none;
+        }
+      }
+    }
+    &__right{
+      margin-right: 8px;
+      line-height: 32px;
+      float: right;
+      display: flex;
+      &--submit{
+        margin-left: 15px;
+      }
+    }
+  }
+}

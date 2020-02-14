@@ -133,12 +133,25 @@ $(function(){
     $("#add-gametitle-search-results").append(html);
 }
 
-  function addedGametitleList(name, id){
+  function addedArticleGametitleList(name, id){
     var html = `
                 <li>
                   <div class="btn btn-outline-secondary">
                   <input class="added-gametitle" type="hidden" value="${id}" name="article[gametitle_ids][]" id="article_gametitle_ids_"${id}">
                     <i class="fa fa-tag"></i>
+                    ${name}
+                  </div>
+                </li>
+            `
+  $("#added-gametitles").append(html);
+}
+
+  function addedGroupGametitleList(name, id){
+    var html = `
+                <li>
+                  <div class="btn btn-outline-secondary">
+                  <input class="added-gametitle" type="hidden" value="${id}" name="group[gametitle_ids][]" id="group_gametitle_ids_"${id}">
+                    <i class="fa fa-gamepad"></i>
                     ${name}
                   </div>
                 </li>
@@ -181,9 +194,14 @@ $(function(){
     const gametitleId = $(this).attr("data-gametitle-id");
     addedGametitles.push(Number($(this).attr("data-gametitle-id")))
     
-    $(this)
-      .remove();
-    addedGametitleList(gametitleName, gametitleId);
+    if ($(this).closest(".form-default").hasClass('new-group-form')) {
+      $(this).remove();
+      addedGroupGametitleList(gametitleName, gametitleId);
+    }
+    else{
+      $(this).remove();
+      addedArticleGametitleList(gametitleName, gametitleId);
+    }
     
   });
 
