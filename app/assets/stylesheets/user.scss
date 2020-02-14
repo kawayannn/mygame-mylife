@@ -1,5 +1,44 @@
 .user-data{
+  position: relative;
+  background-color: white;
   .progress{
     height: 130px;
+    margin-bottom: 0;
+  }
+  .profile{
+    height: 80px;
+    width: 100%;
+    position: absolute;
+    margin-top: auto;
+    margin-bottom: auto;
+    top: 90px;
+    bottom: auto;
+    padding-left: 15px;
+    img{
+      height: 80px;
+      width: 80px;
+      float: left;
+      margin-right: 15px;
+    }
+    .name{
+      float: none;
+      display: block;
+      width: 100%;
+      height: 46px;
+      bottom: 0;
+      font-weight: 700;
+    }
+    .buttons{
+      float: left;
+      .edit_relationship{
+        display: inline-block;
+      }
+      button{
+        border: 1px solid #28a745;
+      }
+    }
+  }
+  .lower{
+    height: 140px;
   }
 }

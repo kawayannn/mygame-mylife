@@ -1,12 +1,20 @@
 = render 'shared/header'
 %main
-  .user-data
+  .user-data.shadow
     .uper.progress
       .bg-img.progress.progress-bar-striped.bg-info{style: "width: 100%", role: "progressbar"}\
-
-    = render partial: 'shared/user', locals: { user: @user, user_id: @user.id }
-    - if @user.id == current_user.id
-      プロフィールの変更
-    - else
-      = render partial: 'shared/follow', locals: { user: @user }
+    .profile
+      = image_tag @user.image.url, class: "rounded-circle"
+      .name
+        = @user.name
+      .buttons
+        - if @user.id == current_user.id
+          %button.btn.btn-outline-success{type: "button"}
+            プロフィールの変更
+        - else
+          = render partial: 'shared/follow', locals: { user: @user }
+    .lower
+      
+    -# = render partial: 'shared/user', locals: { user: @user, user_id: @user.id }
+    
         
