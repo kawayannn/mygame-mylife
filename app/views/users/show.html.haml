@@ -14,6 +14,17 @@
         - else
           = render partial: 'shared/follow', locals: { user: @user }
     .lower
+      .menus
+        .menu
+          = render 'activity'
+          .follow
+            = fa_icon 'user', class: "icon"
+            %p
+              フォロー ４
+          .follower
+            = fa_icon 'users', class: "icon"
+            %p
+              フォロワー 4
       
     -# = render partial: 'shared/user', locals: { user: @user, user_id: @user.id }
     

@@ -39,6 +39,50 @@
     }
   }
   .lower{
-    height: 140px;
+    height: 130px;
+    position: relative;
+    .menus{
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      text-align: center;
+      .menu{
+        display: inline-flex;
+        .active{
+          color: #f63;
+          border-bottom: 3px inset #f63;
+        }
+        .icon{
+          font-size: x-large;
+        }
+        p{
+          font-size: x-small;
+          height: 24px;
+          line-height: 24px;
+          font-weight: bold;
+        }
+
+        .activities{
+          margin-right: 22px;
+          width: 80px;
+        }
+        .activity:hover{
+          color: #f63;
+        }
+        .follower{
+          margin-right: 22px;
+          width: 80px;
+        }
+        .follower:hover{
+          color: #f63;
+        }
+        .follow{
+          width: 80px;
+        }
+        .follow:hover{
+          color: #f63;
+        }
+      }
+    }
   }
 }
