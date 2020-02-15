@@ -16,10 +16,11 @@
     .lower
       .menus
         .menu
-          .activities.active
-            = fa_icon 'comment dots', class: "icon"
-            %p
-              アクティビティ
+          = link_to activities_path(@user), method: :get, remote: true do
+            .activities.active
+              = fa_icon 'comment dots', class: "icon"
+              %p
+                アクティビティ
             
           .follow
             = fa_icon 'user', class: "icon"
@@ -29,7 +30,4 @@
             = fa_icon 'users', class: "icon"
             %p
               フォロワー 4
-      
-    -# = render partial: 'shared/user', locals: { user: @user, user_id: @user.id }
-    
-        
+  #user-show-contents

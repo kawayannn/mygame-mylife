@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   delete '/like/:article_id' => 'likes#unlike', as: 'unlike'
   post   '/join/:group_id' => 'groups#join', as: 'join'
   delete   '/exit/:group_id' => 'groups#exit', as: 'exit'
+  get    '/activities/:user_id' => 'users#activities', as: 'activities'
 
   resources :users,         only:[:index, :show]
 
