@@ -16,7 +16,11 @@
     .lower
       .menus
         .menu
-          = render 'activity'
+          .activities.active
+            = fa_icon 'comment dots', class: "icon"
+            %p
+              アクティビティ
+            
           .follow
             = fa_icon 'user', class: "icon"
             %p
