@@ -21,11 +21,11 @@
               = fa_icon 'comment dots', class: "icon"
               %p
                 アクティビティ
-            
-          .follow
-            = fa_icon 'user', class: "icon"
-            %p
-              フォロー ４
+          = link_to followings_path(@user), method: :get, remote: true do
+            .follow
+              = fa_icon 'user', class: "icon"
+              %p
+                フォロー ４
           .follower
             = fa_icon 'users', class: "icon"
             %p

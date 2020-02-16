@@ -24,6 +24,11 @@ class UsersController < ApplicationController
     @activities = (@messages + @comments).sort_by{|activities| activities.created_at}.reverse.take(10)
   end
 
+  def followings
+    @user = User.find(params[:user_id])
+    @followings = @user.followings
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, gametitle_ids: [])
