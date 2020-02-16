@@ -25,11 +25,13 @@
             .follow
               = fa_icon 'user', class: "icon"
               %p
-                フォロー ４
+                フォロー
+                = @user.followings.length
           = link_to followers_path(@user), method: :get, remote: true do
             .follower
               = fa_icon 'users', class: "icon"
               %p
-                フォロワー 4
+                フォロワー
+                = @user.followers.length
   #user-show-contents
     = render partial: 'activities'
