@@ -86,3 +86,43 @@
     }
   }
 }
+
+.activities-contents{
+  width: 70%;
+  min-width: 700px;
+  right: 0;
+  margin: auto;
+  padding-top: 20px;
+  .activity{
+    padding: 10px 8px 12px 8px;
+    height: 160px;
+    background-color: white;
+    margin-bottom: 20px;
+    .uper{
+      margin-bottom: 12px;
+      .user_info{
+        float: left;
+        margin-right: 10px;
+      }
+      .text{
+        height: 20px;
+      }
+      .time{
+        height: 20px;
+        color: #999;
+      }
+    }
+    a{
+      color: black;
+      text-decoration: none;
+      .content{
+        padding: 10px;
+        background-color: #f8f7f8;
+        overflow: hidden;
+        height: 75px;
+        border: 1px solid #dad9d8;
+        word-break: break-all;
+      }
+    }
+  }
+}

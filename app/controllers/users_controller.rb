@@ -12,10 +12,16 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @messages = @user.messages
+    @comments = @user.comments
+    @activities = (@messages + @comments).sort_by{|activities| activities.created_at}.reverse.take(10)
   end
 
   def activities
-    
+    @user = User.find(params[:user_id])
+    @messages = @user.messages
+    @comments = @user.comments
+    @activities = (@messages + @comments).sort_by{|activities| activities.created_at}.reverse.take(10)
   end
 
   private

@@ -1,2 +1,26 @@
-.a
-  a
+.activities-contents
+  - @activities.each do |activity|
+    - if activity.has_attribute?(:content)
+      .activity.shadow
+        .uper
+          = render partial: 'shared/user', locals: { user: @user, user_id: @user.id }
+          .text
+            = activity.group.title
+            にメッセージを送りました
+          .time
+            = activity.created_at.strftime("%Y/%m/%d %H:%M")
+        = link_to group_messages_path(activity.group.id), method: :get do
+          .content
+            = activity.content
+    - elsif activity.has_attribute?(:text)
+      .activity.shadow
+        .uper
+          = render partial: 'shared/user', locals: { user: @user, user_id: @user.id }
+          .text
+            = activity.article.title
+            にコメントしました
+          .time
+            = activity.created_at.strftime("%Y/%m/%d %H:%M")
+        = link_to article_path(activity.article), method: :get do
+          .content
+            = activity.text
