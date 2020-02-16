@@ -17,18 +17,18 @@
       .menus
         .menu
           = link_to activities_path(@user), method: :get, remote: true do
-            .activities.active
+            #activities.active
               = fa_icon 'comment dots', class: "icon"
               %p
                 アクティビティ
           = link_to followings_path(@user), method: :get, remote: true do
-            .follow
+            #follow
               = fa_icon 'user', class: "icon"
               %p
                 フォロー
                 = @user.followings.length
           = link_to followers_path(@user), method: :get, remote: true do
-            .follower
+            #follower
               = fa_icon 'users', class: "icon"
               %p
                 フォロワー

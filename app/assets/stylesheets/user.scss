@@ -62,38 +62,38 @@
           font-weight: bold;
         }
 
-        .activities{
+        #activities{
           margin-right: 22px;
           width: 80px;
         }
-        .activities:hover{
+        #activities:hover{
           color: #f63;
         }
-        .activities.active{
+        #activities.active{
           color: #f63;
           border-bottom: 3px inset #f63;  
         }
 
-        .follower{
+        #follower{
           margin-left: 22px;
           width: 80px;
         }
-        .follower:hover{
+        #follower:hover{
           color: #f63;
         }
-        .follower.active{
+        #follower.active{
           color: #f63;
           border-bottom: 3px inset #f63;
         }
 
-        .follow{
+        #follow{
           width: 80px;
         }
-        .follow.active{
+        #follow.active{
           color: #f63;
           border-bottom: 3px inset #f63;
         }
-        .follow:hover{
+        #follow:hover{
           color: #f63;
         }
       }
