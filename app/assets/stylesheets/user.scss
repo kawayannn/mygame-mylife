@@ -48,9 +48,9 @@
       text-align: center;
       .menu{
         display: inline-flex;
-        .active{
-          color: #f63;
-          border-bottom: 3px inset #f63;
+        a{
+          color: black;
+          text-decoration: none;
         }
         .icon{
           font-size: x-large;
@@ -66,9 +66,14 @@
           margin-right: 22px;
           width: 80px;
         }
-        .activity:hover{
+        .activities:hover{
           color: #f63;
         }
+        .activities.active{
+          color: #f63;
+          border-bottom: 3px inset #f63;  
+        }
+
         .follower{
           margin-left: 22px;
           width: 80px;
@@ -76,8 +81,17 @@
         .follower:hover{
           color: #f63;
         }
+        .follower.active{
+          color: #f63;
+          border-bottom: 3px inset #f63;
+        }
+
         .follow{
           width: 80px;
+        }
+        .follow.active{
+          color: #f63;
+          border-bottom: 3px inset #f63;
         }
         .follow:hover{
           color: #f63;
