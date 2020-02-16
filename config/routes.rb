@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   delete   '/exit/:group_id' => 'groups#exit', as: 'exit'
   get    '/activities/:user_id' => 'users#activities', as: 'activities'
   get    '/followings/:user_id' => 'users#followings', as: 'followings'
+  get    '/followers/:user_id' => 'users#followers', as: 'followers'
 
   resources :users,         only:[:index, :show]
 
