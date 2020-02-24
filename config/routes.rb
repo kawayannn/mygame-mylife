@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get    '/followings/:user_id' => 'users#followings', as: 'followings'
   get    '/followers/:user_id' => 'users#followers', as: 'followers'
 
-  resources :users,         only:[:index, :show, :edit]
+  resources :users,         only:[:index, :show, :edit, :update]
 
   resources :groups,        only:[:new, :create, :index, :destroy, :update, :show, :edit] do
     resources :messages,    only:[:index, :create]
