@@ -53,6 +53,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :introduction, gametitle_ids: [])
+    params.require(:user).permit(:name, :introduction, :image, gametitle_ids: [])
   end
 end

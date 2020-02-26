@@ -161,3 +161,52 @@
     }
   }
 }
+
+.user-edit-form{
+  .file-field{
+    display: none;
+  }
+  .profile{
+    img:hover{
+      cursor: pointer;
+    }
+  }
+  height: 450px;
+  width: 320px;
+  top: calc(50% - 450px/2);
+  left: calc(50% - 320px/2);
+  background-color: #f8f7f8;
+  .uper{
+    height: 40px;
+    width: 100%;
+    padding-left: 6px;
+    display: block;
+    .text{
+      line-height: 40px;
+      float: left;
+    }
+    .close{
+      margin-right: 10px;
+      line-height: 40px;
+      float: right;
+    }
+  }
+  .fields{
+    margin-top: 50px;
+    .field{
+      margin-top: 10px;
+    }
+    .name-change{
+      width: 100%;
+      height: 40px;
+    }
+    .introduction-change{
+      width: 100%;
+      height: 70px;
+    }
+    .btn-set{
+      text-align: right;
+    }
+  }
+}
+

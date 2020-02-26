@@ -9,7 +9,7 @@
         = @user.name
       .buttons
         - if @user.id == current_user.id
-          = link_to edit_user_path(@user) do
+          = link_to edit_user_path(@user), method: :get, remote: true do
             %button.btn.btn-outline-success{type: "button"}
               プロフィールの変更
         - else
@@ -36,3 +36,4 @@
                 = @user.followers.length
   #user-show-contents
     = render partial: 'activities'
+  #user-profile-edit
