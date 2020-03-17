@@ -1,9 +1,41 @@
 = render 'shared/header'
 %main
-  .user-data
-    = render partial: 'shared/user', locals: { user: @user, user_id: @user.id }
-    - if @user.id == current_user.id
-      プロフィールの変更
-    - else
-      = render partial: 'shared/follow', locals: { user: @user }
-        
+  .user-data.shadow
+    .uper.progress
+      .bg-img.progress.progress-bar-striped.bg-info{style: "width: 100%", role: "progressbar"}\
+    .profile
+      = image_tag @user.image.url, class: "rounded-circle"
+      .name
+        = @user.name
+      .buttons
+        - if @user.id == current_user.id
+          = link_to edit_user_path(@user), method: :get, remote: true do
+            %button.btn.btn-outline-success{type: "button"}
+              プロフィールの変更
+        - else
+          = render partial: 'shared/follow', locals: { user: @user }
+    .lower
+      .introduction
+        = @user.introduction
+      .menus
+        .menu
+          = link_to activities_path(@user), method: :get, remote: true do
+            #activities.active
+              = fa_icon 'comment dots', class: "icon"
+              %p
+                アクティビティ
+          = link_to followings_path(@user), method: :get, remote: true do
+            #follow
+              = fa_icon 'user', class: "icon"
+              %p
+                フォロー
+                = @user.followings.length
+          = link_to followers_path(@user), method: :get, remote: true do
+            #follower
+              = fa_icon 'users', class: "icon"
+              %p
+                フォロワー
+                = @user.followers.length
+  #user-show-contents
+    = render partial: 'activities'
+  #user-profile-edit

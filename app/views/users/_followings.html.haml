@@ -1,0 +1,7 @@
+%ul.rerationships
+  - @followings.each do |follow|
+    %li.rerationship
+      .rerationship__left
+        = render partial: 'shared/user', locals: { user: follow, user_id: follow.id} 
+      .rerationship__right
+        = render partial: 'shared/follow', locals: { user: follow }

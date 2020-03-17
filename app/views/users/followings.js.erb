@@ -1,0 +1,11 @@
+$("#user-show-contents").html('<%= escape_javascript(render "followings") %>');
+
+var activities = document.getElementById( "activities" );
+var follow = document.getElementById("follow");
+var follower = document.getElementById("follower");
+
+if (!$( "#follow" ).hasClass('active')){
+  follow.classList.add("active");
+  activities.classList.remove("active");
+  follower.classList.remove("active");
+}

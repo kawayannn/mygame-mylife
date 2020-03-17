@@ -1,0 +1,23 @@
+.build-form.user-edit-form.shadow-lg.p-3.mb-5.rounded
+  .uper
+    .text
+      プロフィール編集
+    %button.close{type: "button", 'aria-label':  "Close"}
+      %span{'aria-hidden': true}
+        &times;
+  = form_for @user do |f|
+    .user-data.shadow      
+      .bg-img.progress.progress-bar-striped.bg-info{style: "width: 100%", role: "progressbar"}\
+      .profile
+        = f.file_field :image, class: "file-field"
+        = f.label :image do
+          = image_tag @user.image.url, class: "rounded-circle"
+    .fields
+      .field
+        = f.label :name,"名前"
+        = f.text_field :name, class: "name-change"
+      .field
+        = f.label :introduction,"自己紹介"
+        = f.text_area :introduction, class: "introduction-change"
+      .btn-set
+        = f.submit "更新", class: "submit-btn btn btn-success"
